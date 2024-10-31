@@ -1,0 +1,64 @@
+{% extends 'pages/base.html' %}
+
+{% block body %}
+  {% include 'components/header.html' %}
+  <div class="container-fluid text-center px-4 px-md-5 mt-3">
+    <div class="row">
+      <div class="col-9 text-start">
+        <h3>Algunos talleres</h3>
+      </div>
+      <div class="col-3 text-end">
+        <button type="button" class="btn btn-outline-primary">Ver más</button>
+      </div>
+      {% comment %} <div class="col-2 bg-success">Column</div>
+      <div class="col-12">Column</div> {% endcomment %}
+    </div>
+
+    <div class="row">
+      <div class="col-6 col-lg-3">
+        <div class="card" style="width: 100%;">
+          <img src="..." class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-lg-3">
+        <div class="card" style="width: 100%;">
+          <img src="..." class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-lg-3">
+        <div class="card" style="width: 100%;">
+          <img src="..." class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-lg-3">
+        <div class="card" style="width: 100%;">
+          <img src="..." class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% include 'components/footer.html' %}
+{% endblock %}
