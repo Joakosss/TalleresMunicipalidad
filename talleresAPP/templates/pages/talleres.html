@@ -1,0 +1,21 @@
+{% extends "pages/base.html" %}
+
+{% block body %}
+<article class="container-fluid text-center px-4 px-md-5 mt-3">
+    <div class="row">
+        {% comment %} {% for i in 4  %} {% endcomment %}
+        {% include "components/card_taller.html" with descripcion="descripcion Prueba" horario="10:30 pm Lunes" profesor="David Zamora" cupos="10" %}
+        {% include "components/card_taller.html" with descripcion="descripcion Prueba" horario="10:30 pm Lunes" profesor="David Zamora" cupos="10" %}
+        {% include "components/card_taller.html" with descripcion="descripcion Prueba" horario="10:30 pm Lunes" profesor="David Zamora" cupos="10" %}
+        {% include "components/card_taller.html" with descripcion="descripcion Prueba" horario="10:30 pm Lunes" profesor="David Zamora" cupos="10" %}
+        {% include "components/card_taller.html" with descripcion="descripcion Prueba" horario="10:30 pm Lunes" profesor="David Zamora" cupos="10" %}
+        {% include "components/card_taller.html" with descripcion="descripcion Prueba" horario="10:30 pm Lunes" profesor="David Zamora" cupos="10" %}
+        {% include "components/card_taller.html" with descripcion="descripcion Prueba" horario="10:30 pm Lunes" profesor="David Zamora" cupos="10" %}
+        {% include "components/card_taller.html" with descripcion="descripcion Prueba" horario="10:30 pm Lunes" profesor="David Zamora" cupos="10" %}
+        {% include "components/card_taller.html" with descripcion="descripcion Prueba" horario="10:30 pm Lunes" profesor="David Zamora" cupos="10" %}
+        {% include "components/card_taller.html" with descripcion="descripcion Prueba" horario="10:30 pm Lunes" profesor="David Zamora" cupos="10" %}
+        {% comment %} {% endfor %} {% endcomment %}
+    </div>
+    
+</article>
+{% endblock %}

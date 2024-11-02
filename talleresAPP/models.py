@@ -121,6 +121,6 @@ class SolicitudMaterial(models.Model):
     cantidad = models.IntegerField
     fecha_solicitud = models.DateField
     estado_solicitud = models.BooleanField
-    materiales = models.ForeignKey('Materiales', on_delete=models.CASCADE)
+    material = models.ForeignKey('Material', on_delete=models.CASCADE)
     instructor = models.ForeignKey('Instructor', on_delete=models.CASCADE)
     taller = models.ForeignKey('Taller', on_delete=models.CASCADE)

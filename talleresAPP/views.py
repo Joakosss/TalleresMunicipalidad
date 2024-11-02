@@ -4,3 +4,6 @@ from django.shortcuts import render
 
 def index(request):
     return render(request, 'pages/index.html')
+
+def talleres(request):
+    return render(request, 'pages/talleres.html')
