@@ -1,0 +1,12 @@
+body{
+    background-color: #EFEFEF !important ;
+}
+
+form{
+    background-color: white !important;
+}
+
+.btn-primary{
+    background-color: #FF7978 !important;
+    border: #FF7978 !important;
+}
