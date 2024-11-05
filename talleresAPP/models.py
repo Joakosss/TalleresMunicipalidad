@@ -40,7 +40,7 @@ class Instructor(models.Model):
     usuario = models.ForeignKey('Usuario', on_delete=models.CASCADE)
 
 class Region(models.Model):
-    nombre = models.CharField(max_length=30)
+    nombre = models.CharField(max_length=40)
 
 class Comuna(models.Model):
     nombre = models.CharField(max_length=30)
@@ -58,7 +58,6 @@ class Sala(models.Model):
     especificaciones = models.CharField(max_length=30)
 
 class Taller(models.Model):
-    id_taller = models.BigAutoField(primary_key=True)
     nombre = models.CharField(max_length=40)
     descripcion = models.CharField(max_length=40)
     horario = models.TimeField
@@ -76,20 +75,18 @@ class TallerAdultoMayor(models.Model):
     taller = models.ForeignKey('Taller', on_delete=models.CASCADE)
 
 class ValorizacionTaller(models.Model):
-    taller_adulto_mayor = models.ForeignKey('TallerAdultoMayor', on_delete=models.CASCADE)
     valoracion = models.IntegerField
+    taller_adulto_mayor = models.ForeignKey('TallerAdultoMayor', on_delete=models.CASCADE)
 
 class Bono(models.Model):
-    valorizacion_taller = models.ForeignKey('ValorizacionTaller', on_delete=models.CASCADE)
     fecha_bono = models.DateField
     estado_bono = models.BooleanField    
-    """ Aqui hay que revisar que mierda, en estado bono como lo vamos a dejar, si es un booleano o un string,"""
+    valorizacion_taller = models.ForeignKey('ValorizacionTaller', on_delete=models.CASCADE)
 
 class Pago(models.Model):
-    bono = models.ForeignKey('Bono', on_delete=models.CASCADE)
     fecha_pago = models.DateField
     monto = models.IntegerField
-    estado_pago = models.CharField(max_length=20)
+    bono = models.ForeignKey('Bono', on_delete=models.CASCADE)
     taller = models.ForeignKey('Taller', on_delete=models.CASCADE)
 
 class FuncionarioMunicipal(models.Model):
@@ -105,8 +102,6 @@ class PropuestaTaller(models.Model):
     nombre = models.CharField(max_length=40)
     descripcion = models.CharField(max_length=40)
     horario = models.TimeField
-    fecha_inicio= models.DateField
-    fecha_fin= models.DateField
     estadoSolicitud =models.BooleanField
     instructor = models.ForeignKey('Instructor', on_delete=models.CASCADE)
     municipalidad = models.ForeignKey('Municipalidad', on_delete=models.CASCADE)
@@ -116,10 +111,11 @@ class Material(models.Model):
     especificacion = models.CharField(max_length=40)
     stock = models.IntegerField
     precio = models.IntegerField
+    municipalidad = models.ForeignKey('Municipalidad', on_delete=models.CASCADE)
 
 class SolicitudMaterial(models.Model):
-    cantidad = models.IntegerField
     fecha_solicitud = models.DateField
+    cantidad = models.IntegerField
     estado_solicitud = models.BooleanField
     material = models.ForeignKey('Material', on_delete=models.CASCADE)
     instructor = models.ForeignKey('Instructor', on_delete=models.CASCADE)
