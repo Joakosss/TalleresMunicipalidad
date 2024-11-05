@@ -1,0 +1,112 @@
+[
+    {
+        "id": 1,
+        "nombre": "Taller de Manualidades",
+        "descripcion": "Aprenderás diversas técnicas de manualidades.",
+        "horario": "10:00:00",
+        "fecha_inicio": "2024-11-01",
+        "fecha_fin": "2024-11-30",
+        "sala_id": 1,
+        "instructor_id": 1,
+        "municipalidad_id": 1
+    },
+    {
+        "id": 2,
+        "nombre": "Taller de Cocina Saludable",
+        "descripcion": "Aprende a cocinar de forma saludable y deliciosa.",
+        "horario": "10:00:00",
+        "fecha_inicio": "2024-11-01",
+        "fecha_fin": "2024-11-30",
+        "sala_id": 2,
+        "instructor_id": 2,
+        "municipalidad_id": 2
+    },
+    {
+        "id": 3,
+        "nombre": "Taller de Ejercicio Suave",
+        "descripcion": "Ejercicios de bajo impacto para mantenerte activo.",
+        "horario": "10:00:00",
+        "fecha_inicio": "2024-11-01",
+        "fecha_fin": "2024-11-30",
+        "sala_id": 1,
+        "instructor_id": 1,
+        "municipalidad_id": 1
+    },
+    {
+        "id": 4,
+        "nombre": "Taller de Jardinería",
+        "descripcion": "Descubre el arte de la jardinería.",
+        "horario": "10:00:00",
+        "fecha_inicio": "2024-11-01",
+        "fecha_fin": "2024-11-30",
+        "sala_id": 2,
+        "instructor_id": 2,
+        "municipalidad_id": 2
+    },
+    {
+        "id": 5,
+        "nombre": "Taller de Escritura Creativa",
+        "descripcion": "Fomenta tu creatividad a través de la escritura.",
+        "horario": "10:00:00",
+        "fecha_inicio": "2024-11-01",
+        "fecha_fin": "2024-11-30",
+        "sala_id": 1,
+        "instructor_id": 1,
+        "municipalidad_id": 1
+    },
+    {
+        "id": 6,
+        "nombre": "Taller de Fotografía",
+        "descripcion": "Aprende técnicas de fotografía para capturar momentos.",
+        "horario": "10:00:00",
+        "fecha_inicio": "2024-11-01",
+        "fecha_fin": "2024-11-30",
+        "sala_id": 2,
+        "instructor_id": 2,
+        "municipalidad_id": 2
+    },
+    {
+        "id": 7,
+        "nombre": "Taller de Tecnología",
+        "descripcion": "Introducción a las herramientas tecnológicas.",
+        "horario": "10:00:00",
+        "fecha_inicio": "2024-11-01",
+        "fecha_fin": "2024-11-30",
+        "sala_id": 1,
+        "instructor_id": 1,
+        "municipalidad_id": 1
+    },
+    {
+        "id": 8,
+        "nombre": "Taller de Música y Canto",
+        "descripcion": "Desarrolla tus habilidades musicales.",
+        "horario": "10:00:00",
+        "fecha_inicio": "2024-11-01",
+        "fecha_fin": "2024-11-30",
+        "sala_id": 2,
+        "instructor_id": 2,
+        "municipalidad_id": 2
+    },
+    {
+        "id": 9,
+        "nombre": "Taller de Juegos de Mesa",
+        "descripcion": "Diversión y estrategia a través de juegos de mesa.",
+        "horario": "10:00:00",
+        "fecha_inicio": "2024-11-01",
+        "fecha_fin": "2024-11-30",
+        "sala_id": 1,
+        "instructor_id": 1,
+        "municipalidad_id": 1
+    },
+    {
+        "id": 10,
+        "nombre": "Taller de Mindfulness y Meditación",
+        "descripcion": "Técnicas para mejorar la concentración y reducir el estrés.",
+        "horario": "10:00:00",
+        "fecha_inicio": "2024-11-01",
+        "fecha_fin": "2024-11-30",
+        "sala_id": 2,
+        "instructor_id": 2,
+        "municipalidad_id": 2
+    }
+]
