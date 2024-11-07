@@ -13,10 +13,10 @@
       <div class="col-12">Column</div> {% endcomment %}
     </div>
 
-    <div class="row">
-      {% comment %} {% for i in 4  %} {% endcomment %}
-        {% include "components/card_taller.html" with descripcion="descripcion Prueba" horario="10:30 pm Lunes" profesor="David Zamora" cupos="10" %}
-      {% comment %} {% endfor %} {% endcomment %}
+    <div class="row mt-3">
+      {% for taller in talleres|slice:':4' %}
+        {% include 'components/card_taller.html' with taller=taller %}
+      {% endfor %}
     </div>
 
     <div class="row p-5">
@@ -28,6 +28,5 @@
         <p class="text-start">La Municipalidad de Puente Alto ofrece talleres gratuitos para adultos mayores, diseñados para promover el bienestar y la inclusión social. Estas actividades incluyen manualidades, clases de baile y talleres de cocina saludable, fomentando la creatividad, la actividad física y la socialización. Inscripciones abiertas en las oficinas municipales o a través de la página web. ¡Únete y disfruta de una experiencia enriquecedora en comunidad!</p>
       </div>
     </div>
-
   </article>
 {% endblock %}
