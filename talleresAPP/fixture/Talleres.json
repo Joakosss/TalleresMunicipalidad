@@ -1,0 +1,162 @@
+[
+    {
+        "model": "talleresAPP.taller",
+        "pk": 1,
+        "fields": {
+            "id": 1,
+            "nombre": "Taller de Manualidades",
+            "descripcion": "Aprenderás diversas técnicas de manualidades.",
+            "horario": "09:00:00",
+            "dia": "Lunes",
+            "fecha_inicio": "2025-11-01",
+            "fecha_fin": "2025-11-30",
+            "sala_id": 1,
+            "instructor_id":101001001,
+            "municipalidad_id": 1
+        }
+    },
+    {
+        "model": "talleresAPP.taller",
+        "pk": 2,
+        "fields": {
+            "id": 2,
+            "nombre": "Taller de Cocina Saludable",
+            "descripcion": "Aprende a cocinar de forma saludable y deliciosa.",
+            "horario": "10:00:00",
+            "dia": "Martes",
+            "fecha_inicio": "2025-11-02",
+            "fecha_fin": "2025-11-30",
+            "sala_id": 2,
+            "instructor_id":202002002,
+            "municipalidad_id": 2
+        }
+    },
+    {
+        "model": "talleresAPP.taller",
+        "pk": 3,
+        "fields": {
+            "id": 3,
+            "nombre": "Taller de Ejercicio Suave",
+            "descripcion": "Ejercicios de bajo impacto para mantenerte activo.",
+            "horario": "11:00:00",
+            "dia": "Miércoles",
+            "fecha_inicio": "2025-11-03",
+            "fecha_fin": "2025-11-30",
+            "sala_id": 1,
+            "instructor_id":101001001,
+            "municipalidad_id": 1
+        }
+    },
+    {
+        "model": "talleresAPP.taller",
+        "pk": 4,
+        "fields": {
+            "id": 4,
+            "nombre": "Taller de Jardinería",
+            "descripcion": "Descubre el arte de la jardinería.",
+            "horario": "12:00:00",
+            "dia": "Jueves",
+            "fecha_inicio": "2025-11-04",
+            "fecha_fin": "2025-11-30",
+            "sala_id": 2,
+            "instructor_id":202002002,
+            "municipalidad_id": 2
+        }
+    },
+    {
+        "model": "talleresAPP.taller",
+        "pk": 5,
+        "fields": {
+            "id": 5,
+            "nombre": "Taller de Escritura Creativa",
+            "descripcion": "Fomenta tu creatividad a través de la escritura.",
+            "horario": "13:00:00",
+            "dia": "Viernes",
+            "fecha_inicio": "2025-11-05",
+            "fecha_fin": "2025-11-30",
+            "sala_id": 1,
+            "instructor_id":101001001,
+            "municipalidad_id": 1
+        }
+    },
+    {
+        "model": "talleresAPP.taller",
+        "pk": 6,
+        "fields": {
+            "id": 6,
+            "nombre": "Taller de Fotografía",
+            "descripcion": "Aprende técnicas de fotografía para capturar momentos.",
+            "horario": "14:00:00",
+            "dia": "Lunes",
+            "fecha_inicio": "2025-11-06",
+            "fecha_fin": "2025-11-30",
+            "sala_id": 2,
+            "instructor_id":202002002,
+            "municipalidad_id": 2
+        }
+    },
+    {
+        "model": "talleresAPP.taller",
+        "pk": 7,
+        "fields": {
+            "id": 7,
+            "nombre": "Taller de Tecnología",
+            "descripcion": "Introducción a las herramientas tecnológicas.",
+            "horario": "15:00:00",
+            "dia": "Martes",
+            "fecha_inicio": "2025-11-07",
+            "fecha_fin": "2025-11-30",
+            "sala_id": 1,
+            "instructor_id":101001001,
+            "municipalidad_id": 1
+        }
+    },
+    {
+        "model": "talleresAPP.taller",
+        "pk": 8,
+        "fields": {
+            "id": 8,
+            "nombre": "Taller de Música y Canto",
+            "descripcion": "Desarrolla tus habilidades musicales.",
+            "horario": "16:00:00",
+            "dia": "Miércoles",
+            "fecha_inicio": "2025-11-08",
+            "fecha_fin": "2025-11-30",
+            "sala_id": 2,
+            "instructor_id":202002002,
+            "municipalidad_id": 2
+        }
+    },
+    {
+        "model": "talleresAPP.taller",
+        "pk": 9,
+        "fields": {
+            "id": 9,
+            "nombre": "Taller de Juegos de Mesa",
+            "descripcion": "Diversión y estrategia a través de juegos de mesa.",
+            "horario": "17:00:00",
+            "dia": "Jueves",
+            "fecha_inicio": "2025-11-09",
+            "fecha_fin": "2025-11-30",
+            "sala_id": 1,
+            "instructor_id":101001001,
+            "municipalidad_id": 1
+        }
+    },
+    {
+        "model": "talleresAPP.taller",
+        "pk": 10,
+        "fields": {
+            "id": 10,
+            "nombre": "Taller de Mindfulness y Meditación",
+            "descripcion": "Técnicas para mejorar la concentración y reducir el estrés.",
+            "horario": "18:00:00",
+            "dia": "Viernes",
+            "fecha_inicio": "2025-11-10",
+            "fecha_fin": "2025-11-30",
+            "sala_id": 2,
+            "instructor_id":202002002,
+            "municipalidad_id": 2
+        }
+    }
+]

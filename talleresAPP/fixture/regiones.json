@@ -1,0 +1,131 @@
+[
+	{
+	  "model": "talleresAPP.Region",
+	  "pk": 1,
+	  "fields": {
+		"id": 1,
+		"nombre": "Arica y Parinacota"
+	  }
+	},
+	{
+	  "model": "talleresAPP.Region",
+	  "pk": 2,
+	  "fields": {
+		"id": 2,
+		"nombre": "Tarapacá"
+	  }
+	},
+	{
+	  "model": "talleresAPP.Region",
+	  "pk": 3,
+	  "fields": {
+		"id": 3,
+		"nombre": "Antofagasta"
+	  }
+	},
+	{
+	  "model": "talleresAPP.Region",
+	  "pk": 4,
+	  "fields": {
+		"id": 4,
+		"nombre": "Atacama"
+	  }
+	},
+	{
+	  "model": "talleresAPP.Region",
+	  "pk": 5,
+	  "fields": {
+		"id": 5,
+		"nombre": "Coquimbo"
+	  }
+	},
+	{
+	  "model": "talleresAPP.Region",
+	  "pk": 6,
+	  "fields": {
+		"id": 6,
+		"nombre": "Valparaíso"
+	  }
+	},
+	{
+	  "model": "talleresAPP.Region",
+	  "pk": 8,
+	  "fields": {
+		"id": 8,
+		"nombre": "Metropolitana de Santiago"
+	  }
+	},
+	{
+	  "model": "talleresAPP.Region",
+	  "pk": 9,
+	  "fields": {
+		"id": 9,
+		"nombre": "Libertador General Bernardo O'Higgins"
+	  }
+	},
+	{
+	  "model": "talleresAPP.Region",
+	  "pk": 10,
+	  "fields": {
+		"id": 10,
+		"nombre": "Maule"
+	  }
+	},
+	{
+	  "model": "talleresAPP.Region",
+	  "pk": 7,
+	  "fields": {
+		"id": 7,
+		"nombre": "Ñuble"
+	  }
+	},
+	{
+	  "model": "talleresAPP.Region",
+	  "pk": 11,
+	  "fields": {
+		"id": 11,
+		"nombre": "Biobío"
+	  }
+	},
+	{
+	  "model": "talleresAPP.Region",
+	  "pk": 12,
+	  "fields": {
+		"id": 12,
+		"nombre": "La Araucanía"
+	  }
+	},
+	{
+	  "model": "talleresAPP.Region",
+	  "pk": 13,
+	  "fields": {
+		"id": 13,
+		"nombre": "Los Ríos"
+	  }
+	},
+	{
+	  "model": "talleresAPP.Region",
+	  "pk": 14,
+	  "fields": {
+		"id": 14,
+		"nombre": "Los Lagos"
+	  }
+	},
+	{
+	  "model": "talleresAPP.Region",
+	  "pk": 15,
+	  "fields": {
+		"id": 15,
+		"nombre": "Aysén del General Carlos Ibáñez del Campo"
+	  }
+	},
+	{
+	  "model": "talleresAPP.Region",
+	  "pk": 16,
+	  "fields": {
+		"id": 16,
+		"nombre": "Magallanes y de la Antártica Chilena"
+	  }
+	}
+  ]
+  
