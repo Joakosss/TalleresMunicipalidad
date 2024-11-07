@@ -77,14 +77,14 @@ WSGI_APPLICATION = 'talleresMunicipales.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'TalleresMunicipales',  # El nombre de la base de datos de Supabase
-        'USER': 'Joakosss',  # El usuario de la base de datos de Supabase
+        'NAME': 'postgres',  # El nombre de la base de datos de Supabase
+        'USER': 'postgres.gtodzzbjvknfwaanggsp',  # El usuario de la base de datos de Supabase
         'PASSWORD': 'GeisCorp#geis',  # La contraseña de la base de datos de Supabase
-        'HOST': 'https://gtodzzbjvknfwaanggsp.supabase.co',  # La URL de la base de datos de Supabase
-        'PORT': '5432',  # Puerto de la base de datos (por defecto PostgreSQL usa 5432)
+        'HOST': 'aws-0-sa-east-1.pooler.supabase.com',  # La URL de la base de datos de Supabase
+        'PORT': '6543',  # Puerto de la base de datos (por defecto PostgreSQL usa 5432)
     }
 }
-
+#user=postgres.gtodzzbjvknfwaanggsp password=[YOUR-PASSWORD] host=aws-0-sa-east-1.pooler.supabase.com port=6543 dbname=postgres
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
