@@ -7,6 +7,7 @@ def get_regiones():
     choices += [(region.id, region.nombre) for region in regiones]
     return choices
 
+    
 class regisAdulto2(forms.Form):
     p_nombre = forms.CharField(
         max_length=20, 
@@ -33,7 +34,7 @@ class regisAdulto2(forms.Form):
         label='Fecha de nacimiento'
     )
 
-class regisAdulto1(forms.Form):
+class regisAdulto3(forms.Form):
     rut_adulto_mayor = forms.CharField(
         max_length=20, 
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese su rut sin puntos ni guion'}),
@@ -50,12 +51,12 @@ class regisAdulto1(forms.Form):
     )
     comuna = forms.CharField(
         max_length=40,
-        widget=forms.Select(attrs={'class': 'form-control'}),
+        widget=forms.Select(attrs={'class': 'form-control col-3 col-md-3', 'disabled': 'disabled'},choices=[('', 'Seleccione una comuna')]),
         label='Comuna'
     )
     direccion = forms.CharField(
         max_length=40,
-        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Dirección'}),
+        widget=forms.TextInput(attrs={'class': 'form-control col-3 col-md-3', 'placeholder': 'Ingrese su dirección' , 'disabled': 'disabled'}),
         label='Dirección'
     )
 """     certificado_residencia = forms.FileField(
@@ -63,11 +64,6 @@ class regisAdulto1(forms.Form):
         label='Certificado de residencia'
     ) """
 
-class regisAdulto3(forms.Form):
-    contrasenia1=forms.CharField(max_length=40)
-    contrasenia2=forms.CharField(max_length=40)
-    
-    
-"""     comuna = forms.ForeignKey('Comuna', on_delete=forms.CASCADE)
-    genero = forms.ForeignKey('Genero', on_delete=forms.CASCADE)
-    usuario = forms.ForeignKey('Usuario', on_delete=forms.CASCADE) """
+class regisAdulto1(forms.Form):
+    contrasenia1=forms.CharField(max_length=40, widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese su contraseña'}), label='Contraseña')
+    contrasenia2=forms.CharField(max_length=40, widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Repita su contraseña'}), label='')

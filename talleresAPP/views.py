@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import JsonResponse
 from formtools.wizard.views import SessionWizardView
 from . import models, forms
 # Create your views here.
@@ -26,3 +27,17 @@ def talleres(request):
     #se hace una consulta a talleres con un join a instructor,sala y municipalidad
     lisTalleres = models.Taller.objects.select_related('instructor','sala','municipalidad').all()
     return render(request, 'pages/talleres.html',{'talleres': lisTalleres})
+
+
+
+
+
+
+
+
+#esto al final AJAXS
+
+def get_comunas(request):
+    region_id = request.GET.get('region_id')
+    comunas = models.Comuna.objects.filter(region_id=region_id).values('id', 'nombre')
+    return JsonResponse(list(comunas), safe=False)
