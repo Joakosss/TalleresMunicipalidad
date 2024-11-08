@@ -20,6 +20,7 @@ class AdultoMayor(models.Model):
     p_apellido = models.CharField(max_length=20)
     s_apellido = models.CharField(max_length=20)
     fecha_nacimiento = models.DateField()
+    email = models.EmailField()
     direccion = models.CharField(max_length=40)
     certificado_residencia = models.FileField(upload_to='archivos/', blank=True, null=True)
     comuna = models.ForeignKey('Comuna', on_delete=models.CASCADE)

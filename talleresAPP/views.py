@@ -1,12 +1,21 @@
 from django.shortcuts import render
-from . import models
+from formtools.wizard.views import SessionWizardView
+from . import models, forms
 # Create your views here.
 
 def login(request):
     return render(request, 'pages/login.html')
 
-def register(request):
-    return render(request, 'pages/register.html')
+class registroAdulto(SessionWizardView):
+    template_name = 'pages/register.html'
+    form_list = [forms.regisAdulto1, forms.regisAdulto2, forms.regisAdulto3]
+
+    def done(self, form_list, **kwargs):
+        # Aquí puedes procesar los datos de los formularios
+        form_data = [form.cleaned_data for form in form_list]
+        return render(self.request, 'done.html', {
+            'form_data': form_data,
+        })
 
 def index(request):
     #se hace una consulta a talleres con un join a instructor
