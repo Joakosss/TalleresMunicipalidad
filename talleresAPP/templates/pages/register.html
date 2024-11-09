@@ -14,9 +14,9 @@
       {% csrf_token %}
       <h1>Registro</h1>
       <div class="d-flex justify-content-center mb-4 gap-3">
-        <a href="?step=0" class="paso {% if wizard.steps.current >= '0' %}activo{% endif %}"></a>
-        <a href="?step=1" class="paso {% if wizard.steps.current >= '1' %}activo{% endif %}"></a>
-        <a href="?step=2" class="paso {% if wizard.steps.current >= '2' %}activo{% endif %}"></a>
+        <div class="paso {% if wizard.steps.current >= '0' %}activo{% endif %}"></div>
+        <div class="paso {% if wizard.steps.current >= '1' %}activo{% endif %}"></div>
+        <div class="paso {% if wizard.steps.current >= '2' %}activo{% endif %}"></div>
       </div>
       {{ wizard.management_form }}
       {{ wizard.form.as_p }}

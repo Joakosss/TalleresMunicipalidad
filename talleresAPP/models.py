@@ -16,7 +16,7 @@ class Usuario(models.Model):
 class AdultoMayor(models.Model):
     rut_adulto_mayor = models.CharField(max_length=20, primary_key=True)
     p_nombre = models.CharField(max_length=20)
-    s_nombre = models.CharField(max_length=20, blank=True, null=True)
+    s_nombre = models.CharField(max_length=20, blank=True)
     p_apellido = models.CharField(max_length=20)
     s_apellido = models.CharField(max_length=20)
     fecha_nacimiento = models.DateField()
@@ -25,12 +25,12 @@ class AdultoMayor(models.Model):
     certificado_residencia = models.FileField(upload_to='archivos/', blank=True, null=True)
     comuna = models.ForeignKey('Comuna', on_delete=models.CASCADE)
     genero = models.ForeignKey('Genero', on_delete=models.CASCADE)
-    usuario = models.ForeignKey('Usuario', on_delete=models.CASCADE)
+    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
 
 class Instructor(models.Model):
     rut_instructor = models.CharField(max_length=20, primary_key=True)
     p_nombre = models.CharField(max_length=20)
-    s_nombre = models.CharField(max_length=20, blank=True, null=True)
+    s_nombre = models.CharField(max_length=20, blank=True)
     p_apellido = models.CharField(max_length=20)
     s_apellido = models.CharField(max_length=20)
     fecha_nacimiento = models.DateField()
@@ -38,7 +38,7 @@ class Instructor(models.Model):
     valor_hora= models.IntegerField()
     comuna = models.ForeignKey('Comuna', on_delete=models.CASCADE)
     genero = models.ForeignKey('Genero', on_delete=models.CASCADE)
-    usuario = models.ForeignKey('Usuario', on_delete=models.CASCADE)
+    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
 
 class Region(models.Model):
     nombre = models.CharField(max_length=100)
@@ -94,10 +94,10 @@ class Pago(models.Model):
 class FuncionarioMunicipal(models.Model):
     rut_funcionario = models.CharField(max_length=20, primary_key=True)
     p_nombre = models.CharField(max_length=20)
-    s_nombre = models.CharField(max_length=20, blank=True, null=True)
+    s_nombre = models.CharField(max_length=20, blank=True)
     p_apellido = models.CharField(max_length=20)
     s_apellido = models.CharField(max_length=20)
-    usuario = models.ForeignKey('Usuario', on_delete=models.CASCADE)
+    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
     municipalidad = models.ForeignKey('Municipalidad', on_delete=models.CASCADE)
 
 class PropuestaTaller(models.Model):

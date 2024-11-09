@@ -1,11 +1,36 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+from django.contrib import messages
+from django.contrib.auth import authenticate, logout,login as auth_login
+from django.contrib.auth.decorators import login_required 
+from django.contrib.auth.models import User
 from formtools.wizard.views import SessionWizardView
 from . import models, forms
 # Create your views here.
 
-def login(request):
+loginURL= 'pages/login.html'
+
+def logear(request):
+    if request.method == 'POST':
+        usuario = request.POST.get('usuario')
+        contrasena = request.POST.get('contrasena')
+        us = authenticate(request, username=usuario, password=contrasena)
+        if us is not None and us.is_active:
+            auth_login(request, us)
+            return render(request, 'pages/index.html')
+        else:
+            messages.error(request, 'Usuario o contraseña incorrecto')
+            return render(request, loginURL)
     return render(request, 'pages/login.html')
+
+
+
+
+
+
+""" def desconectar(request):
+    logout(request)
+    return render(request, 'loginURL') """
 
 class registroAdulto(SessionWizardView):
     template_name = 'pages/register.html'
