@@ -10,8 +10,13 @@ def get_regiones():
     
 class regisAdulto1(forms.Form):
     p_nombre = forms.CharField(
-        max_length=20, 
-        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese primer nombre'}),
+        max_length=20,
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-control',
+                'placeholder': 'Ingrese primer nombre'
+            }
+        ),
         label='Primer nombre'
     )
     s_nombre = forms.CharField(

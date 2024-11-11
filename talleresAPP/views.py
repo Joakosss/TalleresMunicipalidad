@@ -35,13 +35,21 @@ def logear(request):
 class registroAdulto(SessionWizardView):
     template_name = 'pages/register.html'
     form_list = [forms.regisAdulto1, forms.regisAdulto2, forms.regisAdulto3]
-
+    
     def done(self, form_list, **kwargs):
         # Aquí puedes procesar los datos de los formularios
         form_data = [form.cleaned_data for form in form_list]
-        return render(self.request, 'done.html', {
+        
+        #aqui accedemos alos datos de los formularios
+        user_data = form_data[0]
+        
+        return render(self.request, 'login.html', {
             'form_data': form_data,
         })
+
+
+
+
 
 def index(request):
     #se hace una consulta a talleres con un join a instructor

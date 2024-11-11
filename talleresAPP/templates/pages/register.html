@@ -10,7 +10,7 @@
     <title>Registro</title>
   </head>
   <body class="d-flex justify-content-center align-items-center vh-100">
-    <form method="post" class="container border p-5 rounded">
+    <form method="post" class="container border p-5 rounded" novalidate>
       {% csrf_token %}
       <h1>Registro</h1>
       <div class="d-flex justify-content-center mb-4 gap-3">
@@ -21,8 +21,14 @@
       {{ wizard.management_form }}
       {{ wizard.form.as_p }}
       <div class="d-flex gap-3 justify-content-center align-items-center">
-        <a href="{% url 'login' %}">¿Ya tienes cuenta?</a>
-        <button type="submit" class="btn btn-primary p-3 px-5">Siguiente</button>
+        {% if wizard.steps.prev %}
+          <a href="{% url 'login' %}">¿Ya tienes cuenta?</a>
+          <button type="submit" name="wizard_goto_step" value="{{ wizard.steps.prev }}" id="anterior" class="btn btn-secondary" formnovalidate>Anterior</button>
+          <button type="submit" class="btn btn-primary p-3 px-5" formnovalidate>Siguiente</button>
+        {% else %}
+          <a href="{% url 'login' %}">¿Ya tienes cuenta?</a>
+          <button type="submit" class="btn btn-primary p-3 px-5" formnovalidate>Siguiente</button>
+        {% endif %}
       </div>
     </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
