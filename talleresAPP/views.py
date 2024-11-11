@@ -41,11 +41,10 @@ class registroAdulto(SessionWizardView):
         form_data = [form.cleaned_data for form in form_list]
         
         #aqui accedemos alos datos de los formularios
-        user_data = form_data[0]
-        
-        return render(self.request, 'login.html', {
-            'form_data': form_data,
-        })
+        # Combina los datos de los formularios en un solo diccionario
+        user_data = {**form_data[0], **form_data[1], **form_data[2]}
+        print (user_data)
+        return render(self.request, 'pages/login.html')
 
 
 
