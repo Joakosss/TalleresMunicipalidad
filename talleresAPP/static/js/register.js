@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const comunaSelect = document.getElementById('id_1-comuna');
     const direccion = document.getElementById('id_1-direccion');
     /* Cuando region tiene un cambio e ejecuta */
+
+
     regionSelect.addEventListener('change', function() {
         const regionId = this.value;
         if (regionId) {
@@ -29,9 +31,11 @@ document.addEventListener('DOMContentLoaded', function() {
         if (comunaId) {
             direccion.removeAttribute('disabled');
         }
+
     });
 
-
-
-
+    
+    
+    
+    
 });

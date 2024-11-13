@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 
 # hay que revisar pq existe un foreing key pero de 1 a 1 oneToOneField
@@ -25,7 +25,7 @@ class AdultoMayor(models.Model):
     certificado_residencia = models.FileField(upload_to='archivos/', blank=True, null=True)
     comuna = models.ForeignKey('Comuna', on_delete=models.CASCADE)
     genero = models.ForeignKey('Genero', on_delete=models.CASCADE)
-    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
+    usuario = models.OneToOneField(User, on_delete=models.CASCADE)
 
 class Instructor(models.Model):
     rut_instructor = models.CharField(max_length=20, primary_key=True)
@@ -38,7 +38,7 @@ class Instructor(models.Model):
     valor_hora= models.IntegerField()
     comuna = models.ForeignKey('Comuna', on_delete=models.CASCADE)
     genero = models.ForeignKey('Genero', on_delete=models.CASCADE)
-    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
+    usuario = models.OneToOneField(User, on_delete=models.CASCADE)
 
 class Region(models.Model):
     nombre = models.CharField(max_length=100)
@@ -97,7 +97,7 @@ class FuncionarioMunicipal(models.Model):
     s_nombre = models.CharField(max_length=20, blank=True)
     p_apellido = models.CharField(max_length=20)
     s_apellido = models.CharField(max_length=20)
-    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
+    usuario = models.OneToOneField(User, on_delete=models.CASCADE)
     municipalidad = models.ForeignKey('Municipalidad', on_delete=models.CASCADE)
 
 class PropuestaTaller(models.Model):

@@ -10,6 +10,13 @@
     <title>Registro</title>
   </head>
   <body class="d-flex justify-content-center align-items-center vh-100">
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
     <form method="post" class="container border p-5 rounded" novalidate>
       {% csrf_token %}
       <h1>Registro</h1>

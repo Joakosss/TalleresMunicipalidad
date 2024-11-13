@@ -43,8 +43,25 @@ class registroAdulto(SessionWizardView):
         #aqui accedemos alos datos de los formularios
         # Combina los datos de los formularios en un solo diccionario
         user_data = {**form_data[0], **form_data[1], **form_data[2]}
-        print (user_data)
-        return render(self.request, 'pages/login.html')
+        
+        if User.objects.filter(username=user_data['rut_adulto_mayor']).exists():
+            messages.error(self.request, 'El usuario ya existe')
+            return render(self.request, 'pages/login.html')
+
+        # Crea un nuevo usuario
+        try:
+           
+            user = User.objects.create_user(username=user_data['rut_adulto_mayor'], password=user_data['contrasenia1'])
+            
+            get_comunas = models.Comuna.objects.get(id=user_data['comuna'])
+            get_genero = models.Genero.objects.get(id=user_data['genero'])
+            
+            adulto = models.AdultoMayor.objects.create(rut_adulto_mayor = user_data['rut_adulto_mayor'], p_nombre = user_data['p_nombre'], s_nombre = user_data['s_nombre'], p_apellido = user_data['p_apellido'], s_apellido = user_data['s_apellido'], fecha_nacimiento = user_data['fecha_nacimiento'], email = user_data['email'], direccion = user_data['direccion'], comuna = get_comunas, genero = get_genero, usuario = user)
+            messages.success(self.request, 'Usuario registrado correctamente')
+            return render(self.request, 'pages/login.html')
+        except Exception as e:
+            messages.error(self.request, f'Error al registrar el adulto mayor: {str(e)}')
+            return render(self.request, self.template_name, {'form_list': form_list})
 
 
 
