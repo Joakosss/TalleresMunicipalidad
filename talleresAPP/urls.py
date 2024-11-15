@@ -6,8 +6,8 @@ urlpatterns = [
     path('registro/', views.registroAdulto.as_view(), name='registro'),
     path('talleres/', views.talleres, name='talleres'),
     
-    
-    
+    #boton desconectar
+    path('desconectar/', views.desconectar, name='desconectar'),
     #informacion en ajaxs
     path('get_comunas/', views.get_comunas, name='get_comunas'),
 ]

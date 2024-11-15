@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from django.contrib import messages
 from django.contrib.auth import authenticate, logout,login as auth_login
@@ -21,16 +21,13 @@ def logear(request):
         else:
             messages.error(request, 'Usuario o contraseña incorrecto')
             return render(request, loginURL)
-    return render(request, 'pages/login.html')
+    return render(request, loginURL)
 
-
-
-
-
-
-""" def desconectar(request):
+@login_required(login_url="login")
+def desconectar(request):
     logout(request)
-    return render(request, 'loginURL') """
+    return redirect('login')
+
 
 class registroAdulto(SessionWizardView):
     template_name = 'pages/register.html'
@@ -72,6 +69,7 @@ def index(request):
     lisTalleres = models.Taller.objects.select_related('instructor').all()
     return render(request, 'pages/index.html', {'talleres': lisTalleres})
 
+@login_required(login_url="login")
 def talleres(request): 
     #se hace una consulta a talleres con un join a instructor,sala y municipalidad
     lisTalleres = models.Taller.objects.select_related('instructor','sala','municipalidad').all()

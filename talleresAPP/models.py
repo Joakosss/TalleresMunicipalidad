@@ -28,17 +28,17 @@ class AdultoMayor(models.Model):
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
 
 class Instructor(models.Model):
-    rut_instructor = models.CharField(max_length=20, primary_key=True)
-    p_nombre = models.CharField(max_length=20)
-    s_nombre = models.CharField(max_length=20, blank=True)
-    p_apellido = models.CharField(max_length=20)
-    s_apellido = models.CharField(max_length=20)
-    fecha_nacimiento = models.DateField()
-    direccion = models.CharField(max_length=40)
-    valor_hora= models.IntegerField()
-    comuna = models.ForeignKey('Comuna', on_delete=models.CASCADE)
-    genero = models.ForeignKey('Genero', on_delete=models.CASCADE)
-    usuario = models.OneToOneField(User, on_delete=models.CASCADE)
+    rut_instructor  = models.CharField(max_length=20, primary_key=True)
+    p_nombre        = models.CharField(max_length=20)
+    s_nombre        = models.CharField(max_length=20, blank=True)
+    p_apellido      = models.CharField(max_length=20)
+    s_apellido      = models.CharField(max_length=20)
+    fecha_nacimiento= models.DateField()
+    direccion       = models.CharField(max_length=40)
+    valor_hora      = models.IntegerField()
+    comuna          = models.ForeignKey('Comuna', on_delete=models.CASCADE)
+    genero          = models.ForeignKey('Genero', on_delete=models.CASCADE)
+    usuario         = models.OneToOneField(User, on_delete=models.CASCADE)
 
 class Region(models.Model):
     nombre = models.CharField(max_length=100)
