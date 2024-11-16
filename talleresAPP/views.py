@@ -14,10 +14,11 @@ def logear(request):
     if request.method == 'POST':
         usuario = request.POST.get('usuario')
         contrasena = request.POST.get('contrasena')
+        print(usuario, contrasena)
         us = authenticate(request, username=usuario, password=contrasena)
         if us is not None and us.is_active:
             auth_login(request, us)
-            return render(request, 'pages/index.html')
+            return redirect('index')
         else:
             messages.error(request, 'Usuario o contraseña incorrecto')
             return render(request, loginURL)
@@ -43,7 +44,7 @@ class registroAdulto(SessionWizardView):
         
         if User.objects.filter(username=user_data['rut_adulto_mayor']).exists():
             messages.error(self.request, 'El usuario ya existe')
-            return render(self.request, 'pages/login.html')
+            return redirect('login')
 
         # Crea un nuevo usuario
         try:
@@ -55,7 +56,7 @@ class registroAdulto(SessionWizardView):
             
             adulto = models.AdultoMayor.objects.create(rut_adulto_mayor = user_data['rut_adulto_mayor'], p_nombre = user_data['p_nombre'], s_nombre = user_data['s_nombre'], p_apellido = user_data['p_apellido'], s_apellido = user_data['s_apellido'], fecha_nacimiento = user_data['fecha_nacimiento'], email = user_data['email'], direccion = user_data['direccion'], comuna = get_comunas, genero = get_genero, usuario = user)
             messages.success(self.request, 'Usuario registrado correctamente')
-            return render(self.request, 'pages/login.html')
+            return redirect('login')
         except Exception as e:
             messages.error(self.request, f'Error al registrar el adulto mayor: {str(e)}')
             return render(self.request, self.template_name, {'form_list': form_list})
