@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-
+from django.contrib.messages import constants as message_constants
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'talleresAPP.apps.TalleresappConfig',
+    'formtools',
 ]
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -76,12 +79,15 @@ WSGI_APPLICATION = 'talleresMunicipales.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',  # El nombre de la base de datos de Supabase
+        'USER': 'postgres.gtodzzbjvknfwaanggsp',  # El usuario de la base de datos de Supabase
+        'PASSWORD': 'GeisCorp#geis',  # La contraseña de la base de datos de Supabase
+        'HOST': 'aws-0-sa-east-1.pooler.supabase.com',  # La URL de la base de datos de Supabase
+        'PORT': '6543',  # Puerto de la base de datos (por defecto PostgreSQL usa 5432)
     }
 }
-
-
+#user=postgres.gtodzzbjvknfwaanggsp password=[YOUR-PASSWORD] host=aws-0-sa-east-1.pooler.supabase.com port=6543 dbname=postgres
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
@@ -122,3 +128,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MESSAGE_TAGS = {
+    message_constants.DEBUG: 'alert-info',
+    message_constants.INFO: 'alert-info',
+    message_constants.SUCCESS: 'alert-success',
+    message_constants.WARNING: 'alert-warning',
+    message_constants.ERROR: 'alert-danger',
+}
