@@ -76,8 +76,9 @@ def talleres(request):
     lisTalleres = models.Taller.objects.select_related('instructor','sala','municipalidad').all()
     return render(request, 'pages/talleres.html',{'talleres': lisTalleres})
 
-
-
+@login_required(login_url="login")
+def mis_talleres(request):
+    return render(request, 'pages/mis-talleres.html')
 
 
 
