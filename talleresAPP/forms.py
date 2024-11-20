@@ -16,7 +16,7 @@ def get_genero():
     choices += [(genero.id, genero.nombre) for genero in generos]
     return choices
     
-class regisAdulto1(forms.Form):
+class regisAdulto2(forms.Form):
     p_nombre = forms.CharField(
         max_length=20,
         widget=forms.TextInput(
@@ -51,7 +51,7 @@ class regisAdulto1(forms.Form):
         label='Genero'
     )
 
-class regisAdulto2(forms.Form):
+class regisAdulto3(forms.Form):
     rut_adulto_mayor = forms.CharField(
         max_length=20, 
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese su rut sin puntos ni guion'}),
@@ -78,6 +78,6 @@ class regisAdulto2(forms.Form):
         label='Certificado de residencia'
     ) """
 
-class regisAdulto3(forms.Form):
+class regisAdulto1(forms.Form):
     contrasenia1=forms.CharField(max_length=40, widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese su contraseña'}), label='Contraseña')
     contrasenia2=forms.CharField(max_length=40, widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Repita su contraseña'}), label='')

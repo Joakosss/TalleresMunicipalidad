@@ -3,7 +3,8 @@ from . import views;
 urlpatterns = [
     path('', views.index, name='index'),
     path('login/', views.logear, name='login'),
-    path('registro/', views.registroAdulto.as_view(), name='registro'),
+    path('registro2/', views.registroAdulto.as_view(), name='registro2'),
+    path('registro/', views.registro, name='registro'),
     path('talleres/', views.talleres, name='talleres'),
     
     #boton desconectar

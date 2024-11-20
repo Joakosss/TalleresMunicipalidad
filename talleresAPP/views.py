@@ -29,6 +29,11 @@ def desconectar(request):
     logout(request)
     return redirect('login')
 
+def registro(request):
+    regiones = models.Region.objects.all()
+    comuna = models.Comuna.objects.all()
+    genero= models.Genero.objects.all()
+    return render(request, 'pages/registro.html')
 
 class registroAdulto(SessionWizardView):
     template_name = 'pages/register.html'
