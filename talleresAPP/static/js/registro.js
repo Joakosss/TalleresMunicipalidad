@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+  /* rescatamos el doom de los elementos necesarios en una primera instancia */
   const botonForm = this.getElementById("botonForm");
   const regionSelect = this.getElementById("region");
   const comunaSelect = this.getElementById("comuna");
@@ -8,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const paso3 = this.getElementById('paso3');
 
   botonForm.addEventListener("click", function () {
+    /* validamos por paso */
     if (flagPaso == 1) {
       let pNombre = document.getElementById("p_nombre").value;
       let sNombre = document.getElementById("s_nombre").value;
@@ -16,13 +18,14 @@ document.addEventListener("DOMContentLoaded", function () {
       let fecha_nacimiento = document.getElementById("fecha_nacimiento").value;
       let genero = document.getElementById("genero").value;
 
-      validaciones(document.getElementById("err_p_nombre"), pNombre == "");
-      validaciones(document.getElementById("err_s_nombre"), sNombre == "");
-      validaciones(document.getElementById("err_p_apellido"), pApellido == "");
-      validaciones(document.getElementById("err_s_apellido"), sApellido == "");
+      validaciones(document.getElementById("err_p_nombre"), pNombre == "" || !soloLetras(pNombre));
+      validaciones(document.getElementById("err_s_nombre"), sNombre == "") || !soloLetras(sNombre);
+      validaciones(document.getElementById("err_p_apellido"), pApellido == "" || !soloLetras(pApellido));
+      validaciones(document.getElementById("err_s_apellido"), sApellido == "") || !soloLetras(sApellido);
       validaciones(document.getElementById("err_nacimiento"), fecha_nacimiento == "");
       validaciones(document.getElementById("err_genero"), genero == "");
 
+      /* si se cumplen todas las condiciones seguimos al paso 2 */
       if (pNombre != "" && sNombre != "" && pApellido != "" && sApellido != "" && fecha_nacimiento != "" && genero != "") {
         flagPaso = 2;
         paso1.classList.add("d-none");
@@ -37,8 +40,8 @@ document.addEventListener("DOMContentLoaded", function () {
       let comuna = document.getElementById("comuna").value;
       let direccion = document.getElementById("direccion").value;
 
-      validaciones(document.getElementById("err_rut"), rut == "");
-      validaciones(document.getElementById("err_email"), email == "");
+      validaciones(document.getElementById("err_rut"), rut == "" || !/^\d{7,8}[0-9kK]$/.test(rut));
+      validaciones(document.getElementById("err_email"), email == ""|| !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
       validaciones(document.getElementById("err_region"), region == "");
       validaciones(document.getElementById("err_comuna"), comuna == "");
       validaciones(document.getElementById("err_direccion"), direccion == "");
@@ -65,6 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
   
+  /* Esperamos que region se modifique para entregarle los datos a comuna segun la region que seleccionemos */
   regionSelect.addEventListener('change', function() {
     const regionId = this.value;
     if (regionId) {
@@ -83,16 +87,23 @@ document.addEventListener("DOMContentLoaded", function () {
         comunaSelect.setAttribute('disabled', 'disabled');
     };
 });
+  /* Esperamos que comuna se modifique para activar la casilla de dirección */
   comunaSelect.addEventListener('change', function() {
     const direccion = document.getElementById('direccion');
     direccion.removeAttribute('disabled');
   });
 });
 
+/* Funcion de validaciones que se reutiliza durante el proceso del formulario */
 function validaciones(errorDoom, condicion){
   if (condicion) {
     errorDoom.classList.remove("d-none");
   } else {
     errorDoom.classList.add("d-none");
   }
+}
+
+/* Expresion regular para evitar numeros en nombres */
+function soloLetras(e) {
+  return /^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ]+$/.test(e);
 }
