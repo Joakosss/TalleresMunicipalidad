@@ -1,11 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const btnNext1 = this.getElementById("btnNext1");
+  const botonForm = this.getElementById("botonForm");
+  const regionSelect = this.getElementById("region");
+  const comunaSelect = this.getElementById("comuna");
   let flagPaso = 1;
   const paso1 = this.getElementById('paso1');
   const paso2 = this.getElementById('paso2');
   const paso3 = this.getElementById('paso3');
 
-  btnNext1.addEventListener("click", function () {
+  botonForm.addEventListener("click", function () {
     if (flagPaso == 1) {
       let pNombre = document.getElementById("p_nombre").value;
       let sNombre = document.getElementById("s_nombre").value;
@@ -13,49 +15,13 @@ document.addEventListener("DOMContentLoaded", function () {
       let sApellido = document.getElementById("s_apellido").value;
       let fecha_nacimiento = document.getElementById("fecha_nacimiento").value;
       let genero = document.getElementById("genero").value;
-      
-      let errorpNom = document.getElementById("err_p_nombre");
-      let errorsNom = document.getElementById("err_s_nombre");
-      let errorPApe = document.getElementById("err_p_apellido");
-      let errorSApe = document.getElementById("err_s_apellido");
-      let errorNaci = document.getElementById("err_nacimiento");
-      let errorGenero = document.getElementById("err_genero");
 
-      if (pNombre == "") {
-        errorpNom.classList.remove("d-none");
-      } else {
-        errorpNom.classList.add("d-none");
-    }
-    
-      if (sNombre == "") {
-        errorsNom.classList.remove("d-none");
-      } else {
-        errorsNom.classList.add("d-none");
-    }
-    
-    if (pApellido == "") {
-        errorPApe.classList.remove("d-none");
-      } else {
-        errorPApe.classList.add("d-none");
-      }
-
-      if (sApellido == "") {
-        errorSApe.classList.remove("d-none");
-      } else {
-        errorSApe.classList.add("d-none");
-      }
-
-      if (fecha_nacimiento == "") {
-        errorNaci.classList.remove("d-none");
-      } else {
-        errorNaci.classList.add("d-none");
-      }
-
-      if (genero == "") {
-        errorGenero.classList.remove("d-none");
-      } else {
-        errorGenero.classList.add("d-none");
-      }
+      validaciones(document.getElementById("err_p_nombre"), pNombre == "");
+      validaciones(document.getElementById("err_s_nombre"), sNombre == "");
+      validaciones(document.getElementById("err_p_apellido"), pApellido == "");
+      validaciones(document.getElementById("err_s_apellido"), sApellido == "");
+      validaciones(document.getElementById("err_nacimiento"), fecha_nacimiento == "");
+      validaciones(document.getElementById("err_genero"), genero == "");
 
       if (pNombre != "" && sNombre != "" && pApellido != "" && sApellido != "" && fecha_nacimiento != "" && genero != "") {
         flagPaso = 2;
@@ -65,9 +31,68 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
     } else if (flagPaso==2){
+      let rut = document.getElementById("rut_adulto_mayor").value;
+      let email = document.getElementById("email").value;
+      let region = document.getElementById("region").value;
+      let comuna = document.getElementById("comuna").value;
+      let direccion = document.getElementById("direccion").value;
+
+      validaciones(document.getElementById("err_rut"), rut == "");
+      validaciones(document.getElementById("err_email"), email == "");
+      validaciones(document.getElementById("err_region"), region == "");
+      validaciones(document.getElementById("err_comuna"), comuna == "");
+      validaciones(document.getElementById("err_direccion"), direccion == "");
+
+      if (rut != "" && email != "" && region != "" && comuna != "" && direccion != "") {
+        flagPaso = 3;
+        paso2.classList.add("d-none");
+        paso3.classList.remove("d-none");
+        document.getElementById('circle3').classList.add('activo');
+        botonForm.innerHTML = "Registrar";
+      }
+
 
     } else {
-        
+      let clave1 = document.getElementById("contrasenia1").value;        
+      let clave2 = document.getElementById("contrasenia2").value;    
+      validaciones(document.getElementById("err_contrasenia"), clave1 != clave2 || clave1 == "");
+
+      if (clave1 == clave2 && clave1 != "") {
+        botonForm.setAttribute("type", "submit");
+        botonForm.click();
+      }
+
     }
   });
+  
+  regionSelect.addEventListener('change', function() {
+    const regionId = this.value;
+    if (regionId) {
+        fetch(`/get_comunas/?region_id=${regionId}`).then(response => response.json()).then(data => {
+            comunaSelect.innerHTML = '<option value="" disabled selected>Seleccione una comuna</option>';
+            data.forEach(comuna => {
+                const option = document.createElement('option');
+                option.value = comuna.id;
+                option.textContent = comuna.nombre;
+                comunaSelect.appendChild(option);
+            });
+            comunaSelect.removeAttribute('disabled');
+        });
+    } else{
+        comunaSelect.innerHTML = '<option value="">Seleccione una comuna</option>';
+        comunaSelect.setAttribute('disabled', 'disabled');
+    };
 });
+  comunaSelect.addEventListener('change', function() {
+    const direccion = document.getElementById('direccion');
+    direccion.removeAttribute('disabled');
+  });
+});
+
+function validaciones(errorDoom, condicion){
+  if (condicion) {
+    errorDoom.classList.remove("d-none");
+  } else {
+    errorDoom.classList.add("d-none");
+  }
+}

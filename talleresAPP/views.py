@@ -29,11 +29,37 @@ def desconectar(request):
     logout(request)
     return redirect('login')
 
-def registro(request):
+def registro(request): 
+    if request.method == 'POST':
+        rut_adulto_mayor = request.POST.get('rut_adulto_mayor')
+        p_nombre = request.POST.get('p_nombre')
+        s_nombre = request.POST.get('s_nombre')
+        p_apellido = request.POST.get('p_apellido')
+        s_apellido = request.POST.get('s_apellido')
+        fecha_nacimiento = request.POST.get('fecha_nacimiento')
+        email = request.POST.get('email')
+        direccion = request.POST.get('direccion')
+        comuna = request.POST.get('comuna')
+        genero = request.POST.get('genero')
+        contrasenia1 = request.POST.get('contrasenia1')
+        
+        if User.objects.filter(username=rut_adulto_mayor).exists():
+            messages.error(request, 'El usuario ya existe')
+            return redirect('login')
+        try:
+           
+            user = User.objects.create_user(username=rut_adulto_mayor, password=contrasenia1)
+            get_comunas = models.Comuna.objects.get(id=comuna)
+            get_genero = models.Genero.objects.get(id=genero)
+            adulto = models.AdultoMayor.objects.create(rut_adulto_mayor = rut_adulto_mayor, p_nombre = p_nombre, s_nombre = s_nombre, p_apellido = p_apellido, s_apellido = s_apellido, fecha_nacimiento = fecha_nacimiento, email = email, direccion = direccion, comuna = get_comunas, genero = get_genero, usuario = user)
+            messages.success(request, 'Usuario registrado correctamente')
+            return redirect('login')
+        except Exception as e:
+            messages.error(request, f'Error al registrar el adulto mayor: {str(e)}')
+            return render(request, 'pages/registro.html', {'regiones': models.Region.objects.all(), 'generos': models.Genero.objects.all()})
     regiones = models.Region.objects.all()
-    comuna = models.Comuna.objects.all()
-    genero= models.Genero.objects.all()
-    return render(request, 'pages/registro.html')
+    generos = models.Genero.objects.all()
+    return render(request, 'pages/registro.html', {'regiones': regiones, 'generos': generos})
 
 class registroAdulto(SessionWizardView):
     template_name = 'pages/register.html'
