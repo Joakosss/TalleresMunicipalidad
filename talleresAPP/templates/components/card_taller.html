@@ -8,7 +8,31 @@
       <p>Profesor: {{ taller.instructor.p_nombre }} {{ taller.instructor.p_apellido }}</p>
     </div>
     <div class="card-body text-start">
-      <a href="inscripcion" class="btn btn-primary">Inscribirse</a>
+      <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary" data-id={{ taller.id }} >Inscribirse</button>
     </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Inscripción</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h4 id="modal-nombreTaller"></h4>
+            <p id="modal-fechaInicio"></p>
+            <p id="modal-fechaFin"></p>
+            <p id="modal-horario"></p>
+          </div>
+          <div class="modal-footer">
+            <h6>¿Desea inscribirse a éste taller?</h6>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary">Confirmar</button>
+          </div>
+        </div>
+      </div>
   </div>
 </div>
