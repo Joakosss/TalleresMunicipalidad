@@ -80,9 +80,13 @@ def talleres(request):
 def mis_talleres(request):
     return render(request, 'pages/mis-talleres.html')
 
+@login_required(login_url="login")
+def inscripcion(request):
+    return render(request, 'pages/inscripcion.html')
 
-
-
+@login_required(login_url="login")
+def perfil(request):
+    return render(request, 'pages/perfil.html')
 
 #esto al final AJAXS
 

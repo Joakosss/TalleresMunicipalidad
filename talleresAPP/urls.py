@@ -6,6 +6,8 @@ urlpatterns = [
     path('registro/', views.registroAdulto.as_view(), name='registro'),
     path('talleres/', views.talleres, name='talleres'),
     path('mis-talleres/', views.mis_talleres, name='mis-talleres'),
+    path('inscripcion/', views.inscripcion, name='inscripcion'),
+    path('mi-perfil/', views.perfil, name='perfil'),
     
     #boton desconectar
     path('desconectar/', views.desconectar, name='desconectar'),
