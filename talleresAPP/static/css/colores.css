@@ -17,3 +17,10 @@
     background-color: #d7cfff; 
     border-color: #d7cfff;
 }
+
+
+.tarjeta:hover {
+    background-color: #f4f4fe !important;
+    cursor: pointer;
+    transform: scale(1.01);
+}

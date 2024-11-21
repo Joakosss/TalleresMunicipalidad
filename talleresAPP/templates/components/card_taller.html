@@ -1,7 +1,7 @@
 {% load static %}
 
 <div class="col-6 col-lg-3 mb-3 d-flex">
-  <div class="card h-100" style="width: 100%;">
+  <div class="card h-100 tarjeta" style="width: 100%;">
     <h2 style="margin-top: 1rem;">{{ taller.nombre }}</h2>
     <hr />
     <div class="card-body text-start">
@@ -10,7 +10,8 @@
       <p>Profesor: {{ taller.instructor.p_nombre }} {{ taller.instructor.p_apellido }}</p>
     </div>
     <div class="card-body text-start">
-      <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary btnInscribir" data-id={{ taller.id }}>
+      {% if user.is_authenticated %}
+        <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary btnInscribir" data-id={{ taller.id }}>
         Inscribirse
       </button>
     </div>
@@ -38,6 +39,7 @@
             <button type="button" class="btn btn-primary">Confirmar</button>
           </div>
         </div>
+      {% endif %}
       </div>
   </div>
 </div>

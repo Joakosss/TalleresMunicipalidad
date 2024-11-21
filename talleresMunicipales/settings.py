@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'talleresAPP.apps.TalleresappConfig',
-    'formtools',
 ]
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
