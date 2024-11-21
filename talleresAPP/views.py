@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse
 from django.contrib import messages
 from django.contrib.auth import authenticate, logout,login as auth_login
@@ -94,3 +94,19 @@ def get_comunas(request):
     region_id = request.GET.get('region_id')
     comunas = models.Comuna.objects.filter(region_id=region_id).values('id', 'nombre')
     return JsonResponse(list(comunas), safe=False)
+
+def datosTaller(request, idTaller):
+    if request.method == 'GET':
+        taller = get_object_or_404(models.Taller, id = idTaller)
+        adulto = request.user
+        #Guarda los datos de taller en un diccionario
+        datos = {
+            'id' : taller.pk,
+            'nombre' : taller.nombre,
+            'descripcion' : taller.descripcion,
+            'horario' : taller.horario,
+            'fechaIni' : taller.fecha_inicio,
+            'fechaFin' : taller.fecha_fin,
+            'adulto' : adulto
+        }
+        return JsonResponse(datos)

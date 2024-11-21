@@ -1,3 +1,5 @@
+{% load static %}
+
 <div class="col-6 col-lg-3 mb-3 d-flex">
   <div class="card h-100" style="width: 100%;">
     <h2 style="margin-top: 1rem;">{{ taller.nombre }}</h2>
@@ -8,7 +10,9 @@
       <p>Profesor: {{ taller.instructor.p_nombre }} {{ taller.instructor.p_apellido }}</p>
     </div>
     <div class="card-body text-start">
-      <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary" data-id={{ taller.id }} >Inscribirse</button>
+      <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary btnInscribir" data-id={{ taller.id }}>
+        Inscribirse
+      </button>
     </div>
   </div>
   <!-- Modal -->
@@ -22,13 +26,14 @@
             </button>
           </div>
           <div class="modal-body">
-            <h4 id="modal-nombreTaller"></h4>
-            <p id="modal-fechaInicio"></p>
-            <p id="modal-fechaFin"></p>
-            <p id="modal-horario"></p>
+            <h1 id="tallerId"></h1>
+            <h4 id="modalNombreTaller"></h4>
+            <p id="modalFechaInicio"></p>
+            <p id="modalFechaFin"></p>
+            <p id="modalHorario"></p>
           </div>
           <div class="modal-footer">
-            <h6>¿Desea inscribirse a éste taller?</h6>
+            <h6>¿Desea inscribirse a este taller?</h6>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
             <button type="button" class="btn btn-primary">Confirmar</button>
           </div>
@@ -36,3 +41,4 @@
       </div>
   </div>
 </div>
+<script src="{% static 'js/inscripcion.js' %}"></script>
