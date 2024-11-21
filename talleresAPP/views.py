@@ -84,7 +84,11 @@ def inscripcion(request):
 
 @login_required(login_url="login")
 def perfil(request):
-    return render(request, 'pages/perfil.html')
+    
+    user = request.user
+    adulto = models.AdultoMayor.objects.get(usuario=user)
+    
+    return render(request, 'pages/perfil.html', {'adulto': adulto}) 
 
 #esto al final AJAXS
 

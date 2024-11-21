@@ -5,7 +5,7 @@ urlpatterns = [
     path('login/', views.logear, name='login'),
     path('registro/', views.registro, name='registro'),
     path('talleres/', views.talleres, name='talleres'),
-    
+    path('perfil/',views.perfil, name='perfil'),
     #boton desconectar
     path('desconectar/', views.desconectar, name='desconectar'),
     #informacion en ajaxs
