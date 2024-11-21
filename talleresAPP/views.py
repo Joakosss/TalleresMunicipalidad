@@ -98,7 +98,7 @@ def get_comunas(request):
 def datosTaller(request, idTaller):
     if request.method == 'GET':
         taller = models.Taller.objects.get(id=idTaller)
-        adulto = request.user.id
+        adulto = request.user.username
         #Guarda los datos de taller en un diccionario
         datos = {
             'id' : taller.pk,
