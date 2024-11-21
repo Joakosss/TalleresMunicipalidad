@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, logout,login as auth_login
 from django.contrib.auth.decorators import login_required 
 from django.contrib.auth.models import User
+from formtools.wizard.views import SessionWizardView
 from . import models
 # Create your views here.
 
@@ -30,7 +31,6 @@ def desconectar(request):
 
 def registro(request): 
     if request.method == 'POST':
-        #recuperamos todo los datos del formulario
         rut_adulto_mayor = request.POST.get('rut_adulto_mayor')
         p_nombre = request.POST.get('p_nombre')
         s_nombre = request.POST.get('s_nombre')
@@ -43,17 +43,14 @@ def registro(request):
         genero = request.POST.get('genero')
         contrasenia1 = request.POST.get('contrasenia1')
         
-        #revisamos si el usuario esta asociado a algun usuario ya existente,si es asi redirigimos al login
         if User.objects.filter(username=rut_adulto_mayor).exists():
             messages.error(request, 'El usuario ya existe')
             return redirect('login')
         try:
-           #creamos el usuario
+           
             user = User.objects.create_user(username=rut_adulto_mayor, password=contrasenia1)
-            #asociamos comuna y genero por id a elementos
             get_comunas = models.Comuna.objects.get(id=comuna)
             get_genero = models.Genero.objects.get(id=genero)
-            #creamos el adulto mayor asociando el user creado recientemente
             adulto = models.AdultoMayor.objects.create(rut_adulto_mayor = rut_adulto_mayor, p_nombre = p_nombre, s_nombre = s_nombre, p_apellido = p_apellido, s_apellido = s_apellido, fecha_nacimiento = fecha_nacimiento, email = email, direccion = direccion, comuna = get_comunas, genero = get_genero, usuario = user)
             messages.success(request, 'Usuario registrado correctamente')
             return redirect('login')
@@ -61,7 +58,7 @@ def registro(request):
             messages.error(request, f'Error al registrar el adulto mayor: {str(e)}')
             return render(request, 'pages/registro.html', {'regiones': models.Region.objects.all(), 'generos': models.Genero.objects.all()})
     regiones = models.Region.objects.all()
-    generos = models.Genero.objects.all()
+    generos= models.Genero.objects.all()
     return render(request, 'pages/registro.html', {'regiones': regiones, 'generos': generos})
 
 def index(request):
@@ -75,12 +72,19 @@ def talleres(request):
     lisTalleres = models.Taller.objects.select_related('instructor','sala','municipalidad').all()
     return render(request, 'pages/talleres.html',{'talleres': lisTalleres})
 
+@login_required(login_url="login")
+def mis_talleres(request):
+    return render(request, 'pages/mis-talleres.html')
 
+#pasarle como parametro el id del taller
+#buscar con el orm de django el taller entregandole el id para que traiga solo el taller deseado
+@login_required(login_url="login")
+def inscripcion(request):
+    return render(request, 'pages/inscripcion.html')
 
-
-
-
-
+@login_required(login_url="login")
+def perfil(request):
+    return render(request, 'pages/perfil.html')
 
 #esto al final AJAXS
 

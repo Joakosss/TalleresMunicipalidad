@@ -9,13 +9,6 @@
     <title>Registro</title>
   </head>
   <body class="d-flex justify-content-center align-items-center vh-100">
-    {% if messages %}
-      <ul class="messages">
-        {% for message in messages %}
-          <li class="{{ message.tags }}">{{ message }}</li>
-        {% endfor %}
-      </ul>
-    {% endif %}
     <form method="post" id="registroAdulto" class="container border p-5 rounded" novalidate>
       {% csrf_token %}
       <h1>Registro</h1>
@@ -112,7 +105,18 @@
       </div>
     </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <!-- <script src="{% static 'js/register.js' %}"></script> -->
     <script src="{% static 'js/registro.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {% if messages %}
+      {% for message in messages %}
+        <script>
+          Swal.fire({
+            title: '{{ message }}',
+            text: ' ',
+            icon: '{{message.tags}}'
+          })
+        </script>
+      {% endfor %}
+    {% endif %}
   </body>
 </html>
