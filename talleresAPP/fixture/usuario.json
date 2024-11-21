@@ -1,0 +1,28 @@
+[
+    {
+      "model": "auth.user",
+      "pk": 2,
+      "fields": {
+        "username": "303003003",
+        "password": "pbkdf2_sha256$870000$NN9OASpGXSdqwBlz6lSbAw$KHPq3vMeJd5Xntm49yf3n8rN6dJWoKWpmHxUeDu5id0="
+      }
+    },
+    {
+      "model": "talleresAPP.adultomayor",
+      "pk": "303003003",
+      "fields": {
+        "rut_adulto_mayor": "303003003",
+        "p_nombre": "Juan",
+        "s_nombre": "Carlos",
+        "p_apellido": "Perez",
+        "s_apellido": "Gomez",
+        "fecha_nacimiento": "1950-01-01",
+        "email": "juan.perez@example.com",
+        "direccion": "Calle Falsa 123",
+        "certificado_residencia": null,
+        "comuna": 1,
+        "genero": 1,
+        "usuario": 1
+      }
+    }
+  ]

@@ -96,3 +96,11 @@ def get_comunas(request):
     region_id = request.GET.get('region_id')
     comunas = models.Comuna.objects.filter(region_id=region_id).values('id', 'nombre')
     return JsonResponse(list(comunas), safe=False)
+
+def delete_User(request):
+    user = request.user
+    adulto = models.AdultoMayor.objects.get(usuario=user)
+    adulto.delete()
+    user.delete()
+    logout(request)
+    return redirect('login')

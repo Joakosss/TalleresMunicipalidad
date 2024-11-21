@@ -10,4 +10,7 @@ urlpatterns = [
     path('desconectar/', views.desconectar, name='desconectar'),
     #informacion en ajaxs
     path('get_comunas/', views.get_comunas, name='get_comunas'),
+    
+    #Crud Adulto Mayor - User
+    path('delete_adulto',views.delete_User, name='delete_adulto'),
 ]
