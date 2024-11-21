@@ -94,10 +94,11 @@ def get_comunas(request):
     comunas = models.Comuna.objects.filter(region_id=region_id).values('id', 'nombre')
     return JsonResponse(list(comunas), safe=False)
 
+@login_required
 def datosTaller(request, idTaller):
     if request.method == 'GET':
-        taller = get_object_or_404(models.Taller, id = idTaller)
-        adulto = request.user
+        taller = models.Taller.objects.get(id=idTaller)
+        adulto = request.user.id
         #Guarda los datos de taller en un diccionario
         datos = {
             'id' : taller.pk,
