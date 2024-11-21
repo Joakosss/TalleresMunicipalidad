@@ -11,11 +11,18 @@
       <h3>{{ adulto.p_nombre }} {{ adulto.s_nombre }} {{ adulto.p_apellido }} {{ adulto.s_apellido }}</h3>
     </div>
     <hr />
-    <strong>Mi informacion personal</strong>
-    <p>Nacimiento : {{ adulto.fecha_nacimiento|date:'d/m/Y' }}</p>
-    <p>Email : {{ adulto.email }}</p>
-    <p>Dirección : {{ adulto.direccion }}</p>
-    <p>Genero : {{ adulto.genero.nombre }}</p>
+    <div class="row">
+      <div class="col-12 col-sm-6 d-flex justify-content-center align-items-center">
+        <h4>Mi informacion personal</h4>
+      </div>
+      <div class="col-12 col-sm-6">
+        <p>Nacimiento : {{ adulto.fecha_nacimiento|date:'d/m/Y' }}</p>
+        <p>Email : {{ adulto.email }}</p>
+        <p>Genero : {{ adulto.genero.nombre }}</p>
+        <p>Comuna : {{ adulto.comuna.nombre }}</p>
+        <p>Dirección : {{ adulto.direccion }}</p>
+      </div>
+    </div>
 
     <section class="d-flex gap-3 justify-content-end">
       <div class="d-flex flex-column align-items-center">
