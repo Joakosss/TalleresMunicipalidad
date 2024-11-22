@@ -1,0 +1,73 @@
+{% load static %}
+<form action="{% url 'update_adulto' %}" method="post" class="container border p-5 rounded">
+  {% csrf_token %}
+  <h1>Modificando tu perfil</h1>
+  <p>
+    <label for="p_nombre">Primer nombre*</label>
+    <input type="text" name="p_nombre" class="form-control" placeholder="Ingrese primer nombre" id="p_nombre" value="{{ adulto.p_nombre }}" />
+    <small style="color: red" class="d-none" id="err_p_nombre">Ingrese nombre valido</small>
+  </p>
+  <p>
+    <label for="s_nombre">Segundo nombre:</label>
+    <input type="text" name="s_nombre" class="form-control" placeholder="Ingrese segundo nombre" id="s_nombre" value="{{ adulto.s_nombre }}" />
+    <small style="color: red" class="d-none" id="err_s_nombre">Ingrese nombre valido</small>
+  </p>
+  <p>
+    <label for="p_apellido">Primer apellido:</label>
+    <input type="text" name="p_apellido" class="form-control" placeholder="Ingrese primer apellido" id="p_apellido" value="{{ adulto.p_apellido }}" />
+    <small style="color: red" class="d-none" id="err_p_apellido">Ingrese apellido valido</small>
+  </p>
+  <p>
+    <label for="s_apellido">Segundo apellido:</label>
+    <input type="text" name="s_apellido" class="form-control" placeholder="Ingrese segundo apellido" id="s_apellido" value="{{ adulto.s_apellido }}" />
+    <small style="color: red" class="d-none" id="err_s_apellido">Ingrese apellido valido</small>
+  </p>
+  <p>
+    <label for="genero">Genero:</label>
+    <select name="genero" class="form-control" id="genero">
+      <option value="" {% if not adulto.genero %}selected{% endif %}>Seleccione un genero</option>
+      {% for genero in generos %}
+        <option value="{{ genero.id }}" {% if genero.id == adulto.genero.id %}selected{% endif %}>{{ genero.nombre }}</option>
+      {% endfor %}
+    </select>
+    <small style="color: red" class="d-none" id="err_genero">Ingrese una fecha valida</small>
+  </p>
+  <p>
+    <label for="email">Correo electrónico:</label>
+    <input type="email" name="email" class="form-control" placeholder="Correo electrónico" id="email" value="{{ adulto.email }}" />
+    <small style="color: red" class="d-none" id="err_email">Ingrese un correo valido</small>
+  </p>
+  <div class="row">
+    <p class="col-12 col-md-6">
+      <label for="region">Región:</label>
+      <select name="region" class="form-control" id="region">
+        <option value="" {% if not adulto.comuna.region %}selected{% endif %}>Seleccione una región</option>
+        {% for region in regiones %}
+          <option value="{{ region.id }}" {% if region.id == adulto.comuna.region.id %}selected{% endif %}>{{ region.nombre }}</option>
+        {% endfor %}
+      </select>
+      <small style="color: red" class="d-none" id="err_region">Seleccione una región válida</small>    
+    </p>
+    <p class="col-12 col-md-6">
+      <label for="comuna">Comuna:</label>
+      <select name="comuna" class="form-control" id="comuna">
+        <option value="" {% if not adulto.comuna %}selected{% endif %}>Seleccione una comuna</option>
+        {% for comuna in comunas %}
+          <option value="{{ comuna.id }}" {% if comuna.id == adulto.comuna.id %}selected{% endif %}>{{ comuna.nombre }}</option>
+        {% endfor %}
+      </select>
+      <small style="color: red" class="d-none" id="err_comuna">Seleccione una comuna válida</small>    
+    </p>
+  </div>
+  <p>
+    <label for="direccion">Dirección:</label>
+    <input type="text" name="direccion" class="form-control col-3 col-md-3" placeholder="Ingrese su dirección" id="direccion" value="{{adulto.direccion}}"/>
+    <small style="color: red" class="d-none" id="err_direccion">Ingrese una dirección valida</small>
+  </p>
+  <div class="d-flex gap-3 justify-content-center align-items-center">
+    <button type="button" id="botonForm" class="btn btn-secondary p-3 px-5">Cancelar</button>
+    <button type="button" id="botonForm" class="btn btn-primary p-3 px-5">Siguiente</button>
+  </div>
+</form>
+
+<script src="{% static 'js/formUpdateAdulto.js' %}"></script>

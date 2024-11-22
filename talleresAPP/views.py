@@ -84,11 +84,11 @@ def inscripcion(request):
 
 @login_required(login_url="login")
 def perfil(request):
-    
-    user = request.user
-    adulto = models.AdultoMayor.objects.get(usuario=user)
-    
-    return render(request, 'pages/perfil.html', {'adulto': adulto}) 
+    adulto = models.AdultoMayor.objects.get(usuario=request.user)
+    regiones = models.Region.objects.all()
+    comunas= models.Comuna.objects.all()
+    generos= models.Genero.objects.all()
+    return render(request, 'pages/perfil.html', {'adulto': adulto, 'regiones': regiones, 'generos': generos, 'comunas': comunas}) 
 
 #esto al final AJAXS
 
@@ -97,10 +97,16 @@ def get_comunas(request):
     comunas = models.Comuna.objects.filter(region_id=region_id).values('id', 'nombre')
     return JsonResponse(list(comunas), safe=False)
 
-def delete_User(request):
+def delete_user(request):
     user = request.user
     adulto = models.AdultoMayor.objects.get(usuario=user)
     adulto.delete()
     user.delete()
     logout(request)
     return redirect('login')
+
+def update_user(request):
+    user = request.user
+    adulto = models.AdultoMayor.objects.get(usuario=user)
+    adulto.update(p_nombre='',s_nombre='',p_apellido='',s_apellido='',email='',direccion='',comuna='',genero='')
+    return redirect('perfil')
