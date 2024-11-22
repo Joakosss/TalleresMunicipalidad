@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     const regionSelect = this.getElementById("region");
     const comunaSelect = this.getElementById("comuna");
-
+    const botonModif= this.getElementById("botonModif");
+    const botonCancel= this.getElementById("botonCancel");
     regionSelect.addEventListener('change', function() {
         const regionId = this.value;
         if (regionId) {
@@ -18,6 +19,13 @@ document.addEventListener("DOMContentLoaded", function () {
             comunaSelect.innerHTML = '<option value="">Seleccione una comuna</option>';
         };
     });
+
+    botonModif.addEventListener("change",function(){
+        
+    });
+
+
+
 
 });
 
