@@ -21,7 +21,31 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     botonModif.addEventListener("change",function(){
-        
+        let pNombre = document.getElementById("p_nombre").value;
+        let sNombre = document.getElementById("s_nombre").value;
+        let pApellido = document.getElementById("p_apellido").value;
+        let sApellido = document.getElementById("s_apellido").value;
+        let genero = document.getElementById("genero").value;
+        let email = document.getElementById("email").value;
+        let region = document.getElementById("region").value;
+        let comuna = document.getElementById("comuna").value;
+        let direccion = document.getElementById("direccion").value;
+
+        const errPNombre   = validaciones(document.getElementById("err_p_nombre"), pNombre == "" || !soloLetras(pNombre));
+        const errSNombre   = validaciones(document.getElementById("err_s_nombre"), sNombre == "") || !soloLetras(sNombre);
+        const errPApellido = validaciones(document.getElementById("err_p_apellido"), pApellido == "" || !soloLetras(pApellido));
+        const errSApellido = validaciones(document.getElementById("err_s_apellido"), sApellido == "") || !soloLetras(sApellido);
+        const errNacim     = validaciones(document.getElementById("err_nacimiento"), fecha_nacimiento == "");
+        const errGenero    = validaciones(document.getElementById("err_genero"), genero == "");
+        const errEmail     = validaciones(document.getElementById("err_email"), email == ""|| !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
+        const errRegion    = validaciones(document.getElementById("err_region"), region == "");
+        const errComuna    = validaciones(document.getElementById("err_comuna"), comuna == "");
+        const errDireccion = validaciones(document.getElementById("err_direccion"), direccion == "");
+
+        if (errPNombre && errSNombre && errPApellido && errSApellido && errNacim && errGenero && errEmail && errRegion && errComuna && errDireccion) {
+            
+        }
+
     });
 
 
@@ -38,3 +62,9 @@ function validaciones(errorDoom, condicion){
       errorDoom.classList.add("d-none");
     }
   }
+
+  /* Expresion regular para evitar numeros en nombres */
+function soloLetras(e) {
+    return /^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ]+$/.test(e);
+  }
+  

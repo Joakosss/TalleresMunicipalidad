@@ -18,15 +18,15 @@ document.addEventListener("DOMContentLoaded", function () {
       let fecha_nacimiento = document.getElementById("fecha_nacimiento").value;
       let genero = document.getElementById("genero").value;
 
-      validaciones(document.getElementById("err_p_nombre"), pNombre == "" || !soloLetras(pNombre));
-      validaciones(document.getElementById("err_s_nombre"), sNombre == "") || !soloLetras(sNombre);
-      validaciones(document.getElementById("err_p_apellido"), pApellido == "" || !soloLetras(pApellido));
-      validaciones(document.getElementById("err_s_apellido"), sApellido == "") || !soloLetras(sApellido);
-      validaciones(document.getElementById("err_nacimiento"), fecha_nacimiento == "");
-      validaciones(document.getElementById("err_genero"), genero == "");
+      const errPNombre   = validaciones(document.getElementById("err_p_nombre"), pNombre == "" || !soloLetras(pNombre));
+      const errSNombre   = validaciones(document.getElementById("err_s_nombre"), sNombre == "") || !soloLetras(sNombre);
+      const errPApellido = validaciones(document.getElementById("err_p_apellido"), pApellido == "" || !soloLetras(pApellido));
+      const errSApellido = validaciones(document.getElementById("err_s_apellido"), sApellido == "") || !soloLetras(sApellido);
+      const errFechaNac  = validaciones(document.getElementById("err_nacimiento"), fecha_nacimiento == "");
+      const errGenero    = validaciones(document.getElementById("err_genero"), genero == "");
 
       /* si se cumplen todas las condiciones seguimos al paso 2 */
-      if (pNombre != "" && sNombre != "" && pApellido != "" && sApellido != "" && fecha_nacimiento != "" && genero != "") {
+      if (errPNombre && errSNombre && errPApellido && errSApellido && errFechaNac && errGenero) {
         flagPaso = 2;
         paso1.classList.add("d-none");
         paso2.classList.remove("d-none");
@@ -40,13 +40,13 @@ document.addEventListener("DOMContentLoaded", function () {
       let comuna = document.getElementById("comuna").value;
       let direccion = document.getElementById("direccion").value;
 
-      validaciones(document.getElementById("err_rut"), rut == "" || !/^\d{7,8}[0-9kK]$/.test(rut));
-      validaciones(document.getElementById("err_email"), email == ""|| !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
-      validaciones(document.getElementById("err_region"), region == "");
-      validaciones(document.getElementById("err_comuna"), comuna == "");
-      validaciones(document.getElementById("err_direccion"), direccion == "");
+      const errRut    = validaciones(document.getElementById("err_rut"), rut == "" || !/^\d{7,8}[0-9kK]$/.test(rut));
+      const errEmail  = validaciones(document.getElementById("err_email"), email == ""|| !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
+      const errRegion = validaciones(document.getElementById("err_region"), region == "");
+      const errComuna = validaciones(document.getElementById("err_comuna"), comuna == "");
+      const errDirecc = validaciones(document.getElementById("err_direccion"), direccion == "");
 
-      if (rut != "" && email != "" && region != "" && comuna != "" && direccion != "") {
+      if (errRut && errEmail && errRegion && errComuna && errDirecc) {
         flagPaso = 3;
         paso2.classList.add("d-none");
         paso3.classList.remove("d-none");
@@ -58,9 +58,9 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       let clave1 = document.getElementById("contrasenia1").value;        
       let clave2 = document.getElementById("contrasenia2").value;    
-      validaciones(document.getElementById("err_contrasenia"), clave1 != clave2 || clave1 == "");
+      const errClaves = validaciones(document.getElementById("err_contrasenia"), clave1 != clave2 || clave1 == "");
 
-      if (clave1 == clave2 && clave1 != "") {
+      if (errClaves) {
         botonForm.setAttribute("type", "submit");
         botonForm.click();
       }
@@ -98,8 +98,10 @@ document.addEventListener("DOMContentLoaded", function () {
 function validaciones(errorDoom, condicion){
   if (condicion) {
     errorDoom.classList.remove("d-none");
+    return false;
   } else {
     errorDoom.classList.add("d-none");
+    return true;
   }
 }
 
