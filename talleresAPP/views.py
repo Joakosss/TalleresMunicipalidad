@@ -84,6 +84,19 @@ def inscripcion(request):
 
 @login_required(login_url="login")
 def perfil(request):
+    if request.method == 'POST':
+        adulto               = models.AdultoMayor.objects.get(usuario=request.user)
+        adulto.p_nombre      = request.POST.get('p_nombre')
+        adulto.s_nombre      = request.POST.get('s_nombre')
+        adulto.p_apellido    = request.POST.get('p_apellido')
+        adulto.s_apellido    = request.POST.get('s_apellido')
+        adulto.email         = request.POST.get('email')
+        adulto.direccion     = request.POST.get('direccion')
+        adulto.comuna        = models.Comuna.objects.get(id=request.POST.get('comuna'))
+        adulto.genero        = models.Genero.objects.get(id=request.POST.get('genero'))
+        adulto.save()
+        messages.success(request, 'Perfil actualizado correctamente')
+        return redirect('perfil')
     adulto = models.AdultoMayor.objects.get(usuario=request.user)
     regiones = models.Region.objects.all()
     comunas= models.Comuna.objects.all()

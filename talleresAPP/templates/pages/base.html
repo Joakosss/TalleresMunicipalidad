@@ -12,14 +12,7 @@
 
     {% endblock %}
   </head>
-  <body>
-    {% if messages %}
-      <ul class="messages">
-        {% for message in messages %}
-          <li class="{{ message.tags }}">{{ message }}</li>
-        {% endfor %}
-      </ul>
-    {% endif %}
+  <body class="d-flex flex-column min-vh-100">
     {% include 'components/header.html' %}
     {% block body %}
 

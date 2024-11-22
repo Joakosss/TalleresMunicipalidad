@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
         };
     });
 
-    botonModif.addEventListener("change",function(){
+    botonModif.addEventListener("click",function(){
         let pNombre = document.getElementById("p_nombre").value;
         let sNombre = document.getElementById("s_nombre").value;
         let pApellido = document.getElementById("p_apellido").value;
@@ -37,16 +37,15 @@ document.addEventListener("DOMContentLoaded", function () {
         const errSNombre   = validaciones(document.getElementById("err_s_nombre"), sNombre == "") || !soloLetras(sNombre);
         const errPApellido = validaciones(document.getElementById("err_p_apellido"), pApellido == "" || !soloLetras(pApellido));
         const errSApellido = validaciones(document.getElementById("err_s_apellido"), sApellido == "") || !soloLetras(sApellido);
-        const errNacim     = validaciones(document.getElementById("err_nacimiento"), fecha_nacimiento == "");
         const errGenero    = validaciones(document.getElementById("err_genero"), genero == "");
         const errEmail     = validaciones(document.getElementById("err_email"), email == ""|| !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
         const errRegion    = validaciones(document.getElementById("err_region"), region == "");
         const errComuna    = validaciones(document.getElementById("err_comuna"), comuna == "");
         const errDireccion = validaciones(document.getElementById("err_direccion"), direccion == "");
-
-        if (errPNombre && errSNombre && errPApellido && errSApellido && errNacim && errGenero && errEmail && errRegion && errComuna && errDireccion) {
-            botonForm.setAttribute("type", "submit");
-            botonForm.click();
+         
+        if (errPNombre && errSNombre && errPApellido && errSApellido && errGenero && errEmail && errRegion && errComuna && errDireccion) {
+            botonModif.setAttribute("type", "submit");
+            botonModif.click();
         }
 
     });
@@ -73,6 +72,7 @@ function validaciones(errorDoom, condicion){
       return false;
     } else {
       errorDoom.classList.add("d-none");
+      console.log(errorDoom+" "+'pasado');
       return true;
     }
   }
