@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const comunaSelect = this.getElementById("comuna");
     const botonModif= this.getElementById("botonModif");
     const botonCancel= this.getElementById("botonCancel");
+    const btnModificar = this.getElementById("btnModificar");
+
     regionSelect.addEventListener('change', function() {
         const regionId = this.value;
         if (regionId) {
@@ -43,11 +45,21 @@ document.addEventListener("DOMContentLoaded", function () {
         const errDireccion = validaciones(document.getElementById("err_direccion"), direccion == "");
 
         if (errPNombre && errSNombre && errPApellido && errSApellido && errNacim && errGenero && errEmail && errRegion && errComuna && errDireccion) {
-            
+            botonForm.setAttribute("type", "submit");
+            botonForm.click();
         }
 
     });
 
+    btnModificar.addEventListener("click",function(){
+        document.getElementById("formMod").classList.remove("d-none");
+        document.getElementById("miPerfil").classList.add("d-none");
+    });
+
+    botonCancel.addEventListener("click",function(){
+        document.getElementById("formMod").classList.add("d-none");
+        document.getElementById("miPerfil").classList.remove("d-none");
+    });
 
 
 
@@ -58,8 +70,10 @@ document.addEventListener("DOMContentLoaded", function () {
 function validaciones(errorDoom, condicion){
     if (condicion) {
       errorDoom.classList.remove("d-none");
+      return false;
     } else {
       errorDoom.classList.add("d-none");
+      return true;
     }
   }
 

@@ -10,6 +10,7 @@ function confirmarEliminar(){
       confirmButtonText: "Confirmar",
       confirmButtonColor: "#3085d6",
       showCancelButton: true,
+      cancelButtonText: "Cancelar",
       cancelButtonColor: "#d33",
       reverseButtons: true
     }).then((result) => {

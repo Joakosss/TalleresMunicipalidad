@@ -1,5 +1,5 @@
 {% load static %}
-<form action="{% url 'update_adulto' %}" method="post" class="container border p-5 rounded">
+<form action="{% url 'update_adulto' %}" method="post" class="container border p-5 rounded d-none mt-3" id="formMod">
   {% csrf_token %}
   <h1>Modificando tu perfil</h1>
   <p>
