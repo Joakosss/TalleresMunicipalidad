@@ -5,17 +5,26 @@ document.addEventListener('DOMContentLoaded', function () {
           fetch(`/datos_taller/${tallerId}/`)
               .then(response => response.json())
               .then(data => {
-                  document.getElementById('modalNombreTaller').innerText = data.nombre;
-                  document.getElementById('modalFechaInicio').innerText = `Fecha Inicio: ${data.fechaIni}`;
-                  document.getElementById('modalFechaFin').innerText = `Fecha Termino: ${data.fechaFin}`;
-                  document.getElementById('modalHorario').innerText = `Horario: ${data.horario}`;
+                if (!document.querySelector('.swal2-container')) {
+                    Swal.fire({ 
+                      title: data.nombre, 
+                      Text: 'FECHA: '+  `${data.fechaIni}`,
+                      html: `
+                      <div style="text-align: left">
+                        <p><strong>Fecha Inicio:</strong> ${data.fechaIni}</p> 
+                        <p><strong>Fecha Termino:</strong> ${data.fechaFin}</p> 
+                        <p><strong>Horario:</strong> ${data.horario}</p> 
+                        <p><strong>Descripción:</strong> ${data.descripcion}</p> 
+                      </div>`,
+                      footer: '¿Desea inscribirse a este taller?',
+                      icon: 'info',
+                      showCancelButton: true,
+                      confirmButtonText: 'Confirmar',
+                      cancelButtonText: 'Cancelar'
+                    });
+                  }
               })
               .catch(error => console.error('Error:', error));
       });
   });
 });
-
-
-function mostrarAlerta() {
-  alert('¡Botón clicado!');
-}

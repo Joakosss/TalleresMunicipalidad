@@ -1,0 +1,9 @@
+.swal2-footer {
+    order: 1; 
+}
+.swal2-actions {
+    order: 2; 
+}
+.swal2-content {
+    order: 0; 
+}
