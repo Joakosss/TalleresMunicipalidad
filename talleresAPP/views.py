@@ -116,9 +116,3 @@ def delete_user(request):
     user.delete()
     logout(request)
     return redirect('login')
-
-def update_user(request):
-    user = request.user
-    adulto = models.AdultoMayor.objects.get(usuario=user)
-    adulto.update(p_nombre='',s_nombre='',p_apellido='',s_apellido='',email='',direccion='',comuna='',genero='')
-    return redirect('perfil')

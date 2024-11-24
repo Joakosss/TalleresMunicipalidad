@@ -13,5 +13,4 @@ urlpatterns = [
     
     #Crud Adulto Mayor - User
     path('delete_adulto',views.delete_user, name='delete_adulto'),
-    path('update_adulto',views.update_user, name='update_adulto'),
 ]   
