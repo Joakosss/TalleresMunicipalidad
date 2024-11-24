@@ -4,7 +4,6 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, logout,login as auth_login
 from django.contrib.auth.decorators import login_required 
 from django.contrib.auth.models import User
-from formtools.wizard.views import SessionWizardView
 from . import models
 # Create your views here.
 

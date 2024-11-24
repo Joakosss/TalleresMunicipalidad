@@ -55,12 +55,11 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("miPerfil").classList.add("d-none");
     });
 
-    botonCancel.addEventListener("click",function(){
+    botonCancel.addEventListener("click", function() {
+        document.getElementById("formMod").reset();
         document.getElementById("formMod").classList.add("d-none");
         document.getElementById("miPerfil").classList.remove("d-none");
     });
-
-
 
 });
 
@@ -81,4 +80,3 @@ function validaciones(errorDoom, condicion){
 function soloLetras(e) {
     return /^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ]+$/.test(e);
   }
-  
