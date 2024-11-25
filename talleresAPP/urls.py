@@ -14,4 +14,5 @@ urlpatterns = [
     #informacion en ajaxs
     path('get_comunas/', views.get_comunas, name='get_comunas'),
     path('datos_taller/<int:idTaller>/', views.datosTaller, name='datos_taller'),
+    path('inscribir_taller/<int:idTaller>/', views.inscribir_taller, name='inscribir_taller'),
 ]

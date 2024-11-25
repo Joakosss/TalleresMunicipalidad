@@ -11,38 +11,12 @@
     </div>
     <div class="card-body text-start">
       {% if user.is_authenticated %}
-        <button type="button" {% comment %} data-toggle="modal" data-target="#exampleModal"  {% endcomment %}class="btn btn-primary btnInscribir" data-id={{ taller.id }}>
+        <button type="button" class="btn btn-primary btnInscribir" data-id={{ taller.id }}>
         Inscribirse
         </button>
       {% endif %}
     </div>
   </div>
-  <!-- Modal -->
-  {% comment %} <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Inscripción</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <h1 id="modalTallerId"></h1>
-            <h4 id="modalNombreTaller"></h4>
-            <p id="modalFechaInicio"></p>
-            <p id="modalFechaFin"></p>
-            <p id="modalHorario"></p>
-          </div>
-          <div class="modal-footer">
-            <h6>¿Desea inscribirse a este taller?</h6>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-            <button type="button" class="btn btn-primary">Confirmar</button>
-          </div>
-        </div>
-      
-      </div>
-  </div> {% endcomment %}
         
 </div>
 <script src="{% static 'js/modal-taller.js' %}"></script>

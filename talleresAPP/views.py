@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from formtools.wizard.views import SessionWizardView
 from . import models
+import json
 # Create your views here.
 
 loginURL= 'pages/login.html'
@@ -107,3 +108,27 @@ def datosTaller(request, idTaller):
             'adulto' : adulto
         }
         return JsonResponse(datos)
+    
+@login_required
+def inscribir_taller(request, idTaller):
+    if request.method == 'POST':
+        # Se obtiene el json enviado por el cliente 
+        data = json.loads(request.body)
+        print("Datos recibidos : ", data)
+        fecha_inicio = data.get('fecha_inicio')
+        fecha_fin = data.get('fecha_fin')
+        adulto = request.user.username
+        taller = idTaller
+
+        # Condición para verificar si el adulto mayor ya está inscrito en el taller
+        if models.TallerAdultoMayor.objects.filter(adulto_mayor = adulto, taller=taller).exists():
+            return JsonResponse({'error': 'Ya esta inscrito en este taller'}, status=400)
+
+        models.TallerAdultoMayor.objects.create(
+            fecha_inicio = fecha_inicio, 
+            fecha_fin = fecha_fin, 
+            adulto_mayor_id = adulto, 
+            taller_id = taller
+        )
+        return JsonResponse({'mensaje': 'Inscripción realizada correctamente'})
+    return JsonResponse({'mensaje': 'Error al inscribirse en el taller'})

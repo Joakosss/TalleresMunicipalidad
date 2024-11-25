@@ -1,9 +1,19 @@
+.swal2-content {
+    order: 0; 
+}
+
 .swal2-footer {
     order: 1; 
 }
+
 .swal2-actions {
     order: 2; 
 }
-.swal2-content {
-    order: 0; 
+
+.swal2-cancel {
+    order: 3;
+}
+
+.swal2-confirm {
+    order: 4;
 }
