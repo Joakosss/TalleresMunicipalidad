@@ -1,10 +1,11 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse
 from django.contrib import messages
 from django.contrib.auth import authenticate, logout,login as auth_login
 from django.contrib.auth.decorators import login_required 
 from django.contrib.auth.models import User
 from . import models
+import json
 # Create your views here.
 
 loginURL= 'pages/login.html'
@@ -75,8 +76,6 @@ def talleres(request):
 def mis_talleres(request):
     return render(request, 'pages/mis-talleres.html')
 
-#pasarle como parametro el id del taller
-#buscar con el orm de django el taller entregandole el id para que traiga solo el taller deseado
 @login_required(login_url="login")
 def inscripcion(request):
     return render(request, 'pages/inscripcion.html')
@@ -116,3 +115,45 @@ def delete_user(request):
     user.delete()
     logout(request)
     return redirect('login')
+
+
+@login_required
+def datosTaller(request, idTaller):
+    if request.method == 'GET':
+        taller = models.Taller.objects.get(id=idTaller)
+        adulto = request.user.username
+        #Guarda los datos de taller en un diccionario
+        datos = {
+            'id' : taller.pk,
+            'nombre' : taller.nombre,
+            'descripcion' : taller.descripcion,
+            'horario' : taller.horario,
+            'fechaIni' : taller.fecha_inicio,
+            'fechaFin' : taller.fecha_fin,
+            'adulto' : adulto
+        }
+        return JsonResponse(datos)
+    
+@login_required
+def inscribir_taller(request, idTaller):
+    if request.method == 'POST':
+        # Se obtiene el json enviado por el cliente 
+        data = json.loads(request.body)
+        print("Datos recibidos : ", data)
+        fecha_inicio = data.get('fecha_inicio')
+        fecha_fin = data.get('fecha_fin')
+        adulto = request.user.username
+        taller = idTaller
+
+        # Condición para verificar si el adulto mayor ya está inscrito en el taller
+        if models.TallerAdultoMayor.objects.filter(adulto_mayor = adulto, taller=taller).exists():
+            return JsonResponse({'error': 'Ya esta inscrito en este taller'}, status=400)
+
+        models.TallerAdultoMayor.objects.create(
+            fecha_inicio = fecha_inicio, 
+            fecha_fin = fecha_fin, 
+            adulto_mayor_id = adulto, 
+            taller_id = taller
+        )
+        return JsonResponse({'mensaje': 'Inscripción realizada correctamente'})
+    return JsonResponse({'mensaje': 'Error al inscribirse en el taller'})
