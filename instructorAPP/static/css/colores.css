@@ -1,0 +1,37 @@
+body{
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+
+.btn-primary{
+    background-color: #FF7978 !important;
+    border: #FF7978 !important;
+}
+.btn-primary:hover{
+    background-color: #ff6a6a !important;
+    border: #ff6a6a !important;
+}
+
+
+.bg-body-tertiary{
+    background-color: #EDEDFF !important;
+}
+
+
+.btn-outline-primary{
+    border: 1px solid #5641C0 !important; ;
+    color: #5641C0 !important;
+}
+.btn-outline-primary:hover {
+    background-color: #d7cfff; 
+    border-color: #d7cfff;
+}
+
+
+.tarjeta:hover {
+    background-color: #f4f4fe !important;
+    cursor: pointer;
+    transform: scale(1.01);
+}
