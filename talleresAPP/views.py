@@ -74,7 +74,22 @@ def talleres(request):
 
 @login_required(login_url="login")
 def mis_talleres(request):
-    return render(request, 'pages/mis-talleres.html')
+    #Obtener talleres inscritos por el usuario
+    inscripciones = models.TallerAdultoMayor.objects.filter(adulto_mayor=request.user.username)
+    
+    talleres = [
+        {
+            'nombre': inscripcion.taller.nombre,
+            'descripcion': inscripcion.taller.descripcion,
+            'fecha_inicio': inscripcion.fecha_inicio,
+            'fecha_fin': inscripcion.fecha_fin,
+            'horario': inscripcion.taller.horario,
+            'instructor': inscripcion.taller.instructor.p_nombre + ' ' + inscripcion.taller.instructor.p_apellido,
+        }
+        for inscripcion in inscripciones
+    ]
+    
+    return render(request, 'pages/mis-talleres.html', {'talleres': talleres})
 
 @login_required(login_url="login")
 def inscripcion(request):
