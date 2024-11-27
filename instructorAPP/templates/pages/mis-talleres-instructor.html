@@ -1,0 +1,16 @@
+{% extends 'pages/base-instructor.html' %}
+{% block head %}
+
+{% endblock %}
+{% block body %}
+  <article class="container-fluid text-center px-4 px-md-5 mt-3">
+    <h3>Mis talleres</h5>
+    <div class="row">
+      {% for taller in talleres %}
+        {% include 'components/CardMisTalleresInstr.html' with taller=taller %}
+      {% endfor %}
+    </div>
+  </article>
+
+  <small>Página referencial no funcional</small>
+{% endblock %}

@@ -53,6 +53,9 @@ class Genero(models.Model):
 
 class Municipalidad(models.Model):
     nombre = models.CharField(max_length=40)
+    
+    def __str__(self):
+        return self.nombre
 
 class Sala(models.Model):
     nombre = models.CharField(max_length=30)
