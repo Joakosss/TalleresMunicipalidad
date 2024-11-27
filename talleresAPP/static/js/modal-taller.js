@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('.btnInscribir').forEach(btn => {
+  const buttons = document.querySelectorAll('.btnInscribir');
+
+  // Agrega evento click a cada botón de inscribirse
+  buttons.forEach(btn => {
     btn.addEventListener('click', function() {
       const tallerId = this.getAttribute('data-id');
 
@@ -25,60 +28,62 @@ document.addEventListener('DOMContentLoaded', function () {
               showCancelButton: true,
               confirmButtonText: 'Confirmar',
               cancelButtonText: 'Cancelar'
-              })
-              .then((result) => {
-                if (result.isConfirmed) {
 
-                    // Manda post request para inscribirse al taller
-                    fetch(`/inscribir_taller/${tallerId}/`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRFToken': getCookie('csrftoken')
-                        },
-                        body: JSON.stringify({
-                            fecha_inicio: f_ini,
-                            fecha_fin: f_fin
-                        })
-                    })
-                    .then(response => {
-                        if (!response.ok) {
-                            return response.text().then(text => { throw new Error(text) });
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        // Si hay error en la respuesta 
-                        if (data.error) {
-                          Swal.fire({
-                              title: 'Error',
-                              text: 'No se ha podido inscribir al taller',
-                              icon: 'error'
-                          });
-                        } else {
-                          // Inscribe exitosamente 
-                          Swal.fire({
-                              title: 'Inscripción exitosa',
-                              text: 'Se ha inscrito correctamente al taller',
-                              icon: 'success'
-                          }).then(() => {
-                              location.reload();
-                      });
-                    }
+            }).then((result) => {
+              if (result.isConfirmed) {
+
+                // Manda post request para inscribirse al taller
+                fetch(`/inscribir_taller/${tallerId}/`, {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json',
+                      'X-CSRFToken': getCookie('csrftoken')
+                  },
+                  body: JSON.stringify({
+                      fecha_inicio: f_ini,
+                      fecha_fin: f_fin
                   })
-                  .catch(error => {
-                      console.error('Error:', error);
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        return response.text().then(text => { throw new Error(text) });
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Si hay error en la respuesta 
+                    if (data.error) {
                       Swal.fire({
                           title: 'Error',
-                          text: error.message,
+                          text: 'No se ha podido inscribir al taller',
                           icon: 'error'
                       });
+                    } else {
+                      // Inscribe exitosamente 
+                      Swal.fire({
+                        title: 'Inscripción exitosa',
+                        text: 'Se ha inscrito correctamente al taller',
+                        icon: 'success'
+                      }).then(() => {
+                        location.reload();
                   });
                 }
+              })
+              .catch(error => {
+                  console.error('Error:', error);
+                  Swal.fire({
+                    title: 'Error',
+                    text: error.message,
+                    icon: 'error'
+                  });
               });
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+              Swal.close();
             }
-          })
-          .catch(error => console.error('Error:', error));
+          });
+        }
+      })
+      .catch(error => console.error('Error:', error));
     });
   });
 });
