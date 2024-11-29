@@ -4,6 +4,7 @@ urlpatterns = [
     path('', views.indexInstructor, name='index_instructor'),
     path('postular-taller', views.postularTaller, name='postular_taller'),
     path('mis-talleres', views.misTalleres, name='mis_talleres'),
+    path('mi-pefil', views.miPerfil, name='mi-pefil'),
     
     #Ajax
     

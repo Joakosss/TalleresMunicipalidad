@@ -34,7 +34,7 @@ class Instructor(models.Model):
     p_apellido      = models.CharField(max_length=20)
     s_apellido      = models.CharField(max_length=20)
     fecha_nacimiento= models.DateField()
-    direccion       = models.CharField(max_length=40)
+    email = models.EmailField()
     valor_hora      = models.IntegerField()
     comuna          = models.ForeignKey('Comuna', on_delete=models.CASCADE)
     genero          = models.ForeignKey('Genero', on_delete=models.CASCADE)

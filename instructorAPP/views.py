@@ -15,6 +15,10 @@ def misTalleres(request):
     talleres = models.Taller.objects.filter(instructor='202002002') # Cambiar por el id del instructor este es ejemplo - request.user.username
     return render(request, 'pages/mis-talleres-instructor.html', {'talleres': talleres})
 
+def miPerfil(request):
+    usuario = '11'       # auth.get_user(request)
+    instructor = models.Instructor.objects.get(usuario=usuario) # Cambiar por el id del instructor este es ejemplo
+    return render(request,'pages/perfil-instructor.html', {'instructor': instructor})
 
 #Ajax
 
