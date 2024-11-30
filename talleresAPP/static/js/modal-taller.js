@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', function () {
     btn.addEventListener('click', function() {
       const tallerId = this.getAttribute('data-id');
 
+      setTimeout(pantallaCarga(), 3000);
+
       // Muestra los datos del taller en modal 
       fetch(`/datos_taller/${tallerId}/`)
         .then(response => response.json())
@@ -102,4 +104,14 @@ function getCookie(nombre) {
         }
     }
     return cookieValue;
+}
+
+function pantallaCarga() {
+  Swal.fire({
+    title: 'Cargando...',
+    allowOutsideClick: false,
+    didOpen: () => {
+      Swal.showLoading();
+    }
+  });
 }
