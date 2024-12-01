@@ -2,6 +2,99 @@
 {% block head %}
 {% endblock %}
 {% block body %}
-    <h1 style="text-align: center;">Pagos</h1>
-    
+    <!-- Gestionar pagos -->
+    <div class="col-xl-12 col-lg-7" style="margin-top: 20px;" >
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Gestionar pagos</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Taller</th>
+                                <th>Horario</th>
+                                <th>Instructor</th>
+                                <th>Sala</th>
+                                <th>Fecha</th>
+                                <th>Estado</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Taller de manualidades</td>
+                                <td>Lunes</td>
+                                <td>Juanito Morales</td>
+                                <td>Sala 1</td>
+                                <td>01-11-2025 a 30-11-2025</td>
+                                <td>Activo</td>
+                                <td>
+                                    <button type="button" class="btn btn-primary btnPago">
+                                      Realizar pago
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Taller de escritura creativa</td>
+                                <td>Viernes</td>
+                                <td>Juanito Morales</td>
+                                <td>Sala 1</td>
+                                <td>05-11-2025 a 30-11-2025</td>  
+                                <td>Activo</td>
+                                <td>
+                                    <button type="button" class="btn btn-primary btnPago">
+                                      Realizar pago
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Taller de pintura</td>
+                                <td>Miércoles</td>
+                                <td>Pepe Diaz</td>
+                                <td>Sala 2</td>
+                                <td>03-11-2025 a 30-11-2025</td>
+                                <td>Activo</td>
+                                <td>
+                                    <button type="button" class="btn btn-primary btnPago">
+                                      Realizar pago
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Taller de Tecnologia</td>
+                                <td>Martes</td>
+                                <td>Pepe Diaz</td>
+                                <td>Sala 2</td>
+                                <td>02-11-2025 a 30-11-2025</td>
+                                <td>Activo</td>
+                                <td>
+                                    <button type="button" class="btn btn-primary btnPago">
+                                      Realizar pago
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Taller de fotografía</td>
+                                <td>Jueves</td>
+                                <td>Pepe Diaz</td>
+                                <td>Sala 2</td>
+                                <td>04-11-2025 a 30-11-2025</td>
+                                <td>Finalizado</td>
+                                <td>
+                                    <button type="button" class="btn btn-primary btnPago">
+                                      Realizar pago
+                                    </button>
+                                </td>
+                              
+                              
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
