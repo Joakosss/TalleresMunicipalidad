@@ -3,5 +3,165 @@
 
 {% endblock %}
 {% block body %}
-  <h1 class="text-center">Pagina instructor</h1>
+{% load static %}
+
+<div class="container-fluid py-4">
+    
+    {% comment %} <div class="row mb-4">
+        <div class="col-12">
+            <div class="card bg-primary text-white">
+                <div class="card-body d-flex align-items-center">
+                    <div class="display-4 me-3">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div>
+                        <h1 class="h3 mb-0">Bienvenid@</h1>
+                        <p class="mb-0">Panel de Instructor</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ {% endcomment %}
+    <div class="row mb-4">
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card border-left-primary h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                Talleres Activos
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">4</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card border-left-info h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                Próximas Clases</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">3</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card border-left-warning h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                Notificaciones Pendientes</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">8</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-bell fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Calendario de Talleres -->
+        <div class="col-xl-8 col-lg-7">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Calendario de Talleres</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Taller</th>
+                                    <th>Horario</th>
+                                    <th>Sala</th>
+                                    <th>Fecha</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                  <td>Taller de manualidades</td>
+                                  <td>Lunes</td>
+                                  <td>Sala 1</td>
+                                  <td>01-11-2025 a 30-11-2025</td>
+                                  <td>Activo</td>
+                                </tr>
+                                <tr>
+                                  <td>Taller de escritura creativa</td>
+                                  <td>Viernes</td>
+                                  <td>Sala 1</td>
+                                  <td>05-11-2025 a 30-11-2025</td>  
+                                  <td>Activo</td>
+                                </tr>
+                                <tr>
+                                  <td>Taller de pintura</td>
+                                  <td>Miércoles</td>
+                                  <td>Sala 2</td>
+                                  <td>03-11-2025 a 30-11-2025</td>
+                                  <td>Activo</td>
+                                </tr>
+                                <tr>
+                                  <td>Taller de Tecnologia</td>
+                                  <td>Martes</td>
+                                  <td>Sala 2</td>
+                                  <td>02-11-2025 a 30-11-2025</td>
+                                  <td>Activo</td>
+                                </tr>
+                                <tr>
+                                  <td>Taller de fotografía</td>
+                                  <td>Jueves</td>
+                                  <td>Sala 2</td>
+                                  <td>04-11-2025 a 30-11-2025</td>
+                                  <td>Finalizado</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notificaciones -->
+        <div class="col-xl-4 col-lg-5">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Notificaciones Recientes</h6>
+                </div>
+                <div class="card-body">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h6 class="mb-1">Solicitud de material activa</h6>
+                                <small>3 días</small>
+                            </div>
+                            <p class="mb-1">Se requieren materiales para el taller de arte.</p>
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 {% endblock %}
