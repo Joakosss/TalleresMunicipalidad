@@ -12,3 +12,6 @@ def postulaciones(request):
 
 def perfilAdmin(request):
     return render(request, 'pages/perfil-admin.html')
+
+def bonos(request):
+    return render(request, 'pages/bonos.html')
