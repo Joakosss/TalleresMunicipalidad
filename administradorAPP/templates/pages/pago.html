@@ -3,6 +3,7 @@
 {% endblock %}
 {% block body %}
     <!-- Gestionar pagos -->
+<div class="container">
     <div class="col-xl-12 col-lg-7" style="margin-top: 20px;" >
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -31,8 +32,8 @@
                                 <td>01-11-2025 a 30-11-2025</td>
                                 <td>Activo</td>
                                 <td>
-                                    <button type="button" class="btn btn-primary btnPago">
-                                      Realizar pago
+                                    <button type="button" class="btn btn-primary btnPago" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        Realizar pago
                                     </button>
                                 </td>
                             </tr>
@@ -44,8 +45,8 @@
                                 <td>05-11-2025 a 30-11-2025</td>  
                                 <td>Activo</td>
                                 <td>
-                                    <button type="button" class="btn btn-primary btnPago">
-                                      Realizar pago
+                                    <button type="button" class="btn btn-primary btnPago" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        Realizar pago
                                     </button>
                                 </td>
                             </tr>
@@ -57,8 +58,8 @@
                                 <td>03-11-2025 a 30-11-2025</td>
                                 <td>Activo</td>
                                 <td>
-                                    <button type="button" class="btn btn-primary btnPago">
-                                      Realizar pago
+                                    <button type="button" class="btn btn-primary btnPago" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        Realizar pago
                                     </button>
                                 </td>
                             </tr>
@@ -70,8 +71,8 @@
                                 <td>02-11-2025 a 30-11-2025</td>
                                 <td>Activo</td>
                                 <td>
-                                    <button type="button" class="btn btn-primary btnPago">
-                                      Realizar pago
+                                    <button type="button" class="btn btn-primary btnPago" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        Realizar pago
                                     </button>
                                 </td>
                             </tr>
@@ -83,12 +84,10 @@
                                 <td>04-11-2025 a 30-11-2025</td>
                                 <td>Finalizado</td>
                                 <td>
-                                    <button type="button" class="btn btn-primary btnPago">
-                                      Realizar pago
+                                    <button type="button" class="btn btn-primary btnPago" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        Realizar pago
                                     </button>
-                                </td>
-                              
-                              
+                                </td>  
                             </tr>
                         </tbody>
                     </table>
@@ -96,5 +95,46 @@
             </div>
         </div>
     </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Realizar pago</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="mb-3">
+                <h6 class="fw-bold mb-3">Detalles del Taller</h6>
+                <div class="row g-2">
+                    <div class="col-6">
+                        <p class="mb-1"><strong>Taller: </strong>Taller de Tecnologia</p>
+                        <p class="mb-1"><strong>Instructor:</strong> Pepe Díaz</p>
+                        <p class="mb-1"><strong>Participantes:</strong> 12</p>
+                    </div>
+                    <div class="col-6">
+                        <p class="mb-1"><strong>Valor por hora: </strong>$5000 </p>
+                        <p class="mb-1"><strong>Bono adicional: </strong>Aprobado</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label fw-bold">Monto a Pagar</label>
+                <div class="input-group">
+                    <span class="input-group-text">$</span>
+                    <input type="number" class="form-control" id="montoPago" required>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary" >Guardar</button>
+            <button type="button" class="btn btn-success">Realizar Pago</button>
+        </div>
+      </div>
+    </div>
+</div>
 
 {% endblock %}

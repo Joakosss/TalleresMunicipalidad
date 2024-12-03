@@ -1,0 +1,135 @@
+{% extends 'pages/base-admin.html' %}
+{% load static %}
+{% block head %}
+{% endblock %}
+{% block body %}
+
+
+<!-- Gestionar bonos -->
+<div class="container">
+    <div class="row">
+        <div class="col-xl-12 col-lg-7" style="margin-top: 20px;" >
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Gestionar bonos</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Taller</th>
+                                    <th>Horario</th>
+                                    <th>Instructor</th>
+                                    <th>Sala</th>
+                                    <th>Fecha</th>
+                                    <th>Estado</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Taller de manualidades</td>
+                                    <td>Lunes</td>
+                                    <td>Juanito Morales</td>
+                                    <td>Sala 1</td>
+                                    <td>01-11-2025 a 30-11-2025</td>
+                                    <td>Finalizado</td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary btnBono" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            Calcular bono
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Taller de escritura creativa</td>
+                                    <td>Viernes</td>
+                                    <td>Juanito Morales</td>
+                                    <td>Sala 1</td>
+                                    <td>05-11-2025 a 30-11-2025</td>  
+                                    <td>Finalizado</td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary btnBono" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            Calcular bono
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Taller de pintura</td>
+                                    <td>Miércoles</td>
+                                    <td>Pepe Diaz</td>
+                                    <td>Sala 2</td>
+                                    <td>03-11-2025 a 30-11-2025</td>
+                                    <td>Finalizado</td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary btnBono" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            Calcular bono
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Taller de Tecnologia</td>
+                                    <td>Martes</td>
+                                    <td>Pepe Diaz</td>
+                                    <td>Sala 2</td>
+                                    <td>02-11-2025 a 30-11-2025</td>
+                                    <td>Finalizado</td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary btnBono" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            Calcular bono
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Taller de fotografía</td>
+                                    <td>Jueves</td>
+                                    <td class="instructorID">Pepe Diaz</td>
+                                    <td>Sala 2</td>
+                                    <td>04-11-2025 a 30-11-2025</td>
+                                    <td>Finalizado</td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary btnBono" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            Calcular bono
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Asignar bono</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="mb-3">
+                <h6>Instructor: Juanito Diaz</span></h6>
+                <h6>Taller: Taller de manualidades</span></h6>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Valoración del Instructor</label>
+                <div class="progress">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">85%</div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary" >Confirmar Bono</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% endblock %}
+<script src="{% static 'js/modalBono.js' %}"></script>

@@ -2,6 +2,149 @@
 {% block head %}
 
 {% endblock %}
+
 {% block body %}
-    
+<div class="container-fluid py-4">
+    <div class="row g-3 mb-4">
+        <div class="col-xl-3 col-md-6">
+            <div class="card border-left-primary h-100 py-2 stat-card">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <div class="text-xs fw-bold text-primary text-uppercase mb-1">
+                                Total Talleres
+                            </div>
+                            <div class="h5 mb-0 fw-bold text-gray-800">12</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-chalkboard fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+            <div class="card border-left-success h-100 py-2 stat-card">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <div class="text-xs fw-bold text-success text-uppercase mb-1">
+                                Instructores Activos</div>
+                            <div class="h5 mb-0 fw-bold text-gray-800">8</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-user-tie fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+            <div class="card border-left-info h-100 py-2 stat-card">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <div class="text-xs fw-bold text-info text-uppercase mb-1">
+                                Solicitudes Pendientes</div>
+                            <div class="h5 mb-0 fw-bold text-gray-800">5</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+            <div class="card border-left-warning h-100 py-2 stat-card">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <div class="text-xs fw-bold text-warning text-uppercase mb-1">
+                                Pagos Pendientes</div>
+                            <div class="h5 mb-0 fw-bold text-gray-800">3</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-8 col-lg-7">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex justify-content-between align-items-center">
+                    <h6 class="m-0 fw-bold text-primary">Tareas Pendientes</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Tarea</th>
+                                    <th>Tipo</th>
+                                    <th>Fecha Límite</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Pago pendiente - Taller de Pintura</td>
+                                    <td>Pago</td>
+                                    <td>28-03-2024</td>
+                                    <td><span class="badge bg-warning">Pendiente</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Revisar postulación - Taller de Música</td>
+                                    <td>Postulación</td>
+                                    <td>30-03-2024</td>
+                                    <td><span class="badge bg-info">En Revisión</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Asignar bono - Instructor Juan Pérez</td>
+                                    <td>Bono</td>
+                                    <td>01-04-2024</td>
+                                    <td><span class="badge bg-warning">Pendiente</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-4 col-lg-5">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 fw-bold text-primary">Notificaciones Importantes</h6>
+                </div>
+                <div class="card-body p-0">
+                    <div class="list-group list-group-flush">
+                        <a href="#" class="list-group-item list-group-item-action p-3">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h6 class="mb-1">Nueva Postulación</h6>
+                                <small class="text-muted">Hace 1 día</small>
+                            </div>
+                            <p class="mb-1">Taller de Música - Revisar documentación</p>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action p-3">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h6 class="mb-1">Bono Aprobado</h6>
+                                <small class="text-muted">Hace 2 días</small>
+                            </div>
+                            <p class="mb-1">Instructor Pepe Díaz califica para bono</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
+
