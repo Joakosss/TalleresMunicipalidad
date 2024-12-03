@@ -1,0 +1,12 @@
+{% extends 'pages/base-admin.html' %}
+
+{% block body %}
+  <form action="" method="post" class="container border p-4 rounded my-3">
+    {% csrf_token %}
+    <h5>Crear material</h5>
+    {{ formulario.as_p }}
+    <div class="text-end">
+      <button type="button" id="botonForm" class="btn btn-primary p-3 px-5">Crear</button>
+    </div>
+  </form>
+{% endblock %}

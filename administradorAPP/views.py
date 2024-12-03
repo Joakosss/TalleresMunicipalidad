@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from . import forms
 
 # Create your views here.
 def indexAdministrador(request):
@@ -12,3 +13,20 @@ def postulaciones(request):
 
 def perfilAdmin(request):
     return render(request, 'pages/perfil-admin.html')
+
+def Materiales(request):
+    return render(request, 'pages/materiales.html')
+
+def crearMaterial(request):
+    formulario = forms.CrearMaterial()
+    return render(request, 'pages/crear-material.html',{'formulario':formulario})
+
+def solicitudesMateriales(request):
+    return render(request, 'pages/solicitudes-materiales.html')
+
+def Salas(request):
+    return render(request, 'pages/salas.html')
+
+def CrearSala(request):
+    formulario = forms.CrearSala()
+    return render(request, 'pages/crearSala.html',{'formulario':formulario})

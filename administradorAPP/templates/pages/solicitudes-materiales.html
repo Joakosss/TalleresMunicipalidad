@@ -1,0 +1,40 @@
+{% extends 'pages/base-admin.html' %}
+{% block head %}
+
+{% endblock %}
+{% block body %}
+  <div class="table-responsive shadow">
+    <h2 class="text-center pt-3">Solicitudes de materiales</h2>
+    <hr />
+    <table class="table">
+      <thead>
+        <tr>
+          <th style="min-width: 9rem;" class="w-10">Taller</th>
+          <th style="min-width: 9rem;" class="w-10">Instructor</th>
+          <th style="min-width: 9rem;" class="w-10">Sala</th>
+          <th style="min-width: 9rem;" class="w-10">Fecha</th>
+          <th style="min-width: 9rem;" class="w-10">Solicitud</th>
+          <th style="min-width: 12rem;" class="w-10"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Taller de manualidades</td>
+          <td>Juanito Morales</td>
+          <td>Sala 1</td>
+          <td>01-11-2025</td>
+          <td>
+            <ul>
+              <li>20 cuadernos</li>
+              <li>20 pinceles</li>
+            </ul>
+          </td>
+          <td>
+            <button type="button" class="btn btn-primary btnPago">Aceptar</button>
+            <button type="button" class="btn btn-primary btnPago">Rechazar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
