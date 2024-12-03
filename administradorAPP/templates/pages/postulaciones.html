@@ -1,7 +1,91 @@
 {% extends 'pages/base-admin.html' %}
 {% block head %}
-    
+
 {% endblock %}
 {% block body %}
-    <h1 style="text-align: center;">Postulaciones</h1>
+    
+    <div class="container-fluid py-4">
+        <div class="row justify-content-center">
+            <div class="col-xl-12 col-lg-7">
+            
+                <div class="card-header py-3 d-flex justify-content-between align-items-center">
+                    <h6 class="m-0 fw-bold text-primary">Postulaciones</h6>
+                </div>
+                <div class="table-responsive">
+                    <table class="table-hover">
+                        <thead>
+                            <tr>
+                                <th>Nombre Postulante</th>
+                                <th>Correo</th>
+                                <th>Nombre Taller</th>
+                                <th>Descripción</th>
+                                <th>Requisitos</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>María González</td>
+                                <td>mgonzales@gmail.com</td>
+                                <td>Taller de tejido</td>
+                                <td>Aprende técnicas básicas y avanzadas de tejido.</td>
+                                <td>Hilo, palillos de tejer.</td>
+                                <td>
+                                    <div style="display: flex; gap: 0.5rem; justify-content: center;">
+                                        <button class="btn btn-danger">Rechazar</button>
+                                        <button class="btn btn-success">Aprobar</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Ana Martínez</td>
+                                <td>anamartinez@gmail.com</td>
+                                <td>Taller de Pintura</td>
+                                <td>Desarrolla habilidades en pintura al óleo y acrílico.</td>
+                                <td>Pinceles, lienzos, pinturas.</td>
+                                <td>
+                                    <div style="display: flex; gap: 0.5rem; justify-content: center;">
+                                        <button class="btn btn-danger">Rechazar</button>
+                                        <button class="btn btn-success">Aprobar</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Pedro López</td>
+                                <td>pedrolopez@gmail.com</td>
+                                <td>Taller de Cocina</td>
+                                <td>Aprende a cocinar platos tradicionales.</td>
+                                <td>Ingredientes básicos, utensilios de cocina.</td>
+                                <td>
+                                    <div style="display: flex; gap: 0.5rem; justify-content: center;">
+                                        <button class="btn btn-danger">Rechazar</button>
+                                        <button class="btn btn-success">Aprobar</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Lucía Fernández</td>
+                                <td>luciafernandez@gmail.com</td>
+                                <td>Taller de Jardinería</td>
+                                <td>Conoce las técnicas de cultivo y mantenimiento de jardines.</td>
+                                <td>Semillas, herramientas de jardinería.</td>
+                                <td>
+                                    <div style="display: flex; gap: 0.5rem; justify-content: center;">
+                                        <button class="btn btn-danger">Rechazar</button>
+                                        <button class="btn btn-success">Aprobar</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+            
+                
+            </div>
+        </div>
+        
+        
+    </div>
+        
 {% endblock %}
