@@ -30,3 +30,9 @@ def Salas(request):
 def CrearSala(request):
     formulario = forms.CrearSala()
     return render(request, 'pages/crearSala.html',{'formulario':formulario})
+
+def Municipalidad(request):
+    return render(request, 'pages/municipalidades.html')
+def CrearMunicipalidad(request):
+    formulario = forms.CrearMunicipalidad()
+    return render(request, 'pages/crear-municipalidad.html',{'formulario':formulario})

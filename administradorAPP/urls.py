@@ -10,4 +10,6 @@ urlpatterns = [
     path('solicitudes-materiales', views.solicitudesMateriales, name='solicitudes_materiales'),
     path('salas', views.Salas, name='salas'),
     path('crear-sala', views.CrearSala, name='crear_sala'),
+    path('municipalidad', views.Municipalidad, name='municipalidad'),
+    path('crear-municipalidad', views.CrearMunicipalidad, name='crear_municipalidad'),
 ]   

@@ -39,8 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'administradorAPP.apps.AdministradorappConfig',
     'instructorAPP.apps.InstructorappConfig',
-    'materialAPP.apps.MaterialappConfig',
-    'salaAPP.apps.SalaappConfig',
     'talleresAPP.apps.TalleresappConfig',
 ]
 
